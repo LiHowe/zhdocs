@@ -1,0 +1,12 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": ["env.d.ts", "posts/**/*", "posts/**/*.vue"],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "ESNext",
+    "module": "ESNext",
+    "composite": true,
+    "types": ["node"]
+  },
+  "exclude": ["node_modules"]
+}

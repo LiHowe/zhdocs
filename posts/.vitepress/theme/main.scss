@@ -1,0 +1,26 @@
+::-webkit-scrollbar{
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+}
+/*滚动条的轨道*/
+::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+/*滚动条的滑块按钮*/
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background-color: #bbb;
+  border: 2px solid var(--vp-c-bg);
+}
+/*滚动条的上下两端的按钮*/
+::-webkit-scrollbar-button{
+  height: 10px;
+}
+
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
