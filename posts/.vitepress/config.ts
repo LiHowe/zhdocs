@@ -6,7 +6,7 @@ export default defineConfig({
   title: 'Source/Fabric',
   lang: 'zh-CN',
   base: '/',
-  outDir: './dist',
+  outDir: '../dist',
   themeConfig: {
     sidebar: {
       '/fabric/': fabricSidebar
