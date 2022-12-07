@@ -57,6 +57,6 @@ pl.set('fill', null)
 
 #### 源码解析
 
-源码解析请前往[源码解析/折线及多边形](../../source/polygon.md)查看
+源码解析请前往[源码解析/折线及多边形](/fabric/source/polygon.md)查看
 
 ---

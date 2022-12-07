@@ -96,7 +96,7 @@ new fabric.Circle({
 
 #### 源码解析
 
-源码解析请前往[源码解析/圆形](../../source/circle.md)查看
+源码解析请前往[源码解析/圆形](/fabric/source/circle.md)查看
 
 
 ---

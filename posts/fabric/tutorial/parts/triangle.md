@@ -18,6 +18,6 @@ new fabric.Triangle({
 
 #### 源码解析
 
-源码解析请前往 [源码解析/三角形](../source/triangle.md) 进行查看.
+源码解析请前往 [源码解析/三角形](/fabric/source/triangle.md) 进行查看.
 
 ---
