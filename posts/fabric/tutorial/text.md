@@ -4,6 +4,11 @@ title: 文本 - Text
 
 <script setup>
 import TextPlayground from './demos/Text.vue'
+import { fabric } from 'fabric'
+
+const path = 'M1 37.5C89.5 24 -7.5 105 86 108C160.8 110.4 152.667 62 135 37.5C115.531 10.5 108.6 1 57 1'
+
+
 </script>
 
 # {{ $frontmatter.title }}
@@ -50,9 +55,9 @@ console.log(text.text)
 
 | 配置项  | 属性名        | 类型                             | 默认值 |
 | ---- | :---------- | ------------------------------ | --- |
-| 字体大小 | fontSize   | `number`                       |     |
-| 字体   | fontFamily | `string`                       |     |
-| 字体粗细 | fontWeight | `'bold'`, `'normal'`, `number` |     |
+| 字体大小 | fontSize   | `number`                       | `40` |
+| 字体   | fontFamily | `string`                       | `'Times New Roman'` |
+| 字体粗细 | fontWeight | `'bold'`, `'normal'`, `number` | `'normal'` |
 | 内容 | text | `string` | |
 | 下划线 | underline | `boolean` | `false` |
 | 上划线 | overline | `boolean` | `false` |

@@ -2,9 +2,7 @@
   <button class="h-btn" :disabled="loading">
     <template v-if="loading">
       <div class="btn-icon">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-loading"></use>
-        </svg>
+        <i class="iconfont icon-loading"></i>
       </div>
     </template>
     <slot></slot>

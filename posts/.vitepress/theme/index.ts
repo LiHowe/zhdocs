@@ -4,8 +4,9 @@ import Mermaid from '../components/Mermaid'
 import Demo from '../components/Demo.vue'
 import Image from '../components/Image.vue'
 import Button from '../components/Btn.vue'
+
 import './main.scss'
-import './iconfont'
+import './iconfont.css'
 
 export default {
   ...DefaultTheme,
