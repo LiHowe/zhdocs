@@ -29,14 +29,22 @@ const props = defineProps<{
 .h-btn {
   padding: 4px 8px;
   border-radius: 4px;
-  background-color: var(--vp-c-brand);
-  color: darken(#fff, 5%);
-  & + & {
-    margin-left: 5px;
+  margin: 5px;
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-bg-mute);
+  transition: color linear .15s;
+  &:hover {
+    color: var(--vp-c-green);
+  }
+  &.primary {
+    background-color: var(--vp-c-green-dark);
+  }
+  &.warning {
+    background-color: var(--vp-c-yellow-dark);
   }
 }
 .btn-icon {
-  color: darken(#fff, 5%);
+  color: var(--vp-c-text-1);
   display: inline-block;
   margin-right: 5px;
   animation: rotate linear infinite 2s;

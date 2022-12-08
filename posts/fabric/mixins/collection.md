@@ -1,5 +1,5 @@
 ---
-title: Collection
+title: Collection - 集合
 source: collection.mixin.ts
 docURL: http://fabricjs.com/docs/fabric.Collection.html
 ---

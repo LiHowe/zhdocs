@@ -1,6 +1,12 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "posts/**/*", "posts/**/*.vue"],
+  "include": [
+    "env.d.ts",
+    "posts/**/*",
+    "posts/**/*.vue",
+    "posts/.vitepress/**/*",
+    "posts/.vitepress/**/*.vue"
+  ],
   "compilerOptions": {
     "baseUrl": "./",
     "target": "ESNext",

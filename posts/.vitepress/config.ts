@@ -18,7 +18,7 @@ export default defineConfig({
     outlineTitle: '目录',
     outline: [2, 3],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/lihowe' }
+      { icon: 'github', link: 'https://github.com/lihowe/canvas' }
     ],
     docFooter: {
       prev: '上一节',

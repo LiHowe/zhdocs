@@ -1,6 +1,6 @@
 <template>
   <div class="demo-container">
-    <div class="title">
+    <div class="title" v-if="title">
       {{ title }}
     </div>
     <div class="content">
@@ -24,12 +24,13 @@ const props = withDefaults(defineProps<{
   border-radius: 8px;
 
   .title {
-    height: 30px;
+    height: 32px;
     line-height: 32px;
     font-size: 14px;
     padding: 0 16px;
-    background: #f5f5f5;
+    background: var(--vp-c-bg-soft);
     border-radius: 8px 8px 0 0;
+    font-weight: bold;
   }
   .content {
     padding: 16px;

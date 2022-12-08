@@ -1,5 +1,5 @@
 ---
-title: Fabric对象 | FabricObject
+title: Fabric对象 - FabricObject
 source: object.class.ts
 ---
 
@@ -11,7 +11,15 @@ import TutorialPlayground from '../components/TutorialPlayground.vue'
 
 FabricObject为 fabric 所有2d图形对象的父类, 部分图形继承链如下
 
-![](https://s2.loli.net/2022/11/28/JxRqXQYyuHamsEN.png)
+<Image src="https://s2.loli.net/2022/11/28/JxRqXQYyuHamsEN.png" title="继承链" />
+
+## Playground
+
+<ClientOnly>
+<Demo title="Playground">
+<TutorialPlayground />
+</Demo>
+</ClientOnly>
 
 ## 对象属性一览
 
@@ -93,11 +101,6 @@ FabricObject为 fabric 所有2d图形对象的父类, 部分图形继承链如�
 | `group`                     | `object`                            | 所属组合对象                                                                                                       |                                   |            |
 | `canvas`                    | `object`                            | 实际添加该元素的画布                                                                                                   |                                   |            |
 | `ownMatrixCache`            | `object`                            | 元素变换矩阵的缓存                                                                                                    |                                   |            |
-
-
-<ClientOnly>
-<TutorialPlayground />
-</ClientOnly>
 
 ## aCoords
 
