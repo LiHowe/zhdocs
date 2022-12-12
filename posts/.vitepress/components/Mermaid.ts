@@ -20,16 +20,21 @@ export default defineComponent({
     const el = ref<HTMLDivElement>()
     const content = ref('')
 
-    let configObj = {
+    let baseConfig = {
       startOnLoad: false,
-      securityLevel: 'loose'
+      securityLevel: 'loose',
+      theme: 'forest',
     }
+    let configObj = {}
     try {
       configObj = JSON.parse(props.config?.replace(/\'/g, '\"') || '{}')
     } catch (e) {
       console.error(e)
+    } finally {
+      configObj = Object.assign({}, baseConfig, configObj)
     }
     const render = async () => {
+      Mermaid.mermaidAPI.initialize(configObj)
       Mermaid.mermaidAPI.render(id, props.code, svgCode => {
         content.value = svgCode
       })

@@ -7,10 +7,12 @@ export default defineConfig({
   lang: 'zh-CN',
   base: '/',
   outDir: '../dist',
+  lastUpdated: true,
   head: [
-    ['link', { rel: 'shortcut icon', type:"image/png", href:"/public/favicon.png"}]
+    ['link', { rel: 'shortcut icon', type:"image/png", href:"/favicon.png"}]
   ],
   themeConfig: {
+    logo: '/favicon.png',
     sidebar: {
       '/fabric/': fabricSidebar
     },
@@ -26,7 +28,8 @@ export default defineConfig({
     docFooter: {
       prev: '上一节',
       next: '下一节'
-    }
+    },
+    lastUpdatedText: '最后更新时间',
   },
   markdown: {
     toc: {

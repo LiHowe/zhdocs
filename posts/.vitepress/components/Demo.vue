@@ -24,13 +24,13 @@ const props = withDefaults(defineProps<{
   border-radius: 8px;
 
   .title {
-    height: 32px;
-    line-height: 32px;
+    line-height: 1;
     font-size: 14px;
-    padding: 0 16px;
+    padding: 16px;
     background: var(--vp-c-bg-soft);
     border-radius: 8px 8px 0 0;
     font-weight: bold;
+    color: var(--vp-custom-block-details-text);
   }
   .content {
     padding: 16px;

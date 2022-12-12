@@ -49,11 +49,11 @@ const fabricObj = new fabric.Canvas('#demo1', {
 :::
 
 
-<Demo>
+:::info Demo
 <div class="playground">
   <canvas ref="demo1"  height="200" width="200" ></canvas>
 </div>
-</Demo>
+:::
 
 <script setup lang="ts">
 import { fabric } from 'fabric'
