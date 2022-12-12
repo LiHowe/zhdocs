@@ -3,10 +3,13 @@ import markdownItMermaidx from './plugin/markdown-it-mermaidx'
 import { fabricSidebar } from './sidebar/fabric'
 
 export default defineConfig({
-  title: 'Source/Fabric',
+  title: 'zhDocs',
   lang: 'zh-CN',
   base: '/',
   outDir: '../dist',
+  head: [
+    ['link', { rel: 'shortcut icon', type:"image/png", href:"/public/favicon.png"}]
+  ],
   themeConfig: {
     sidebar: {
       '/fabric/': fabricSidebar

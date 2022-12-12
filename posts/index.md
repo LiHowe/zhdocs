@@ -4,7 +4,7 @@ features:
   - icon: 🖌
     title: Fabric [WIP]
     details: fabric toturial and source read
-    link: '/fabric/index'
+    link: '/fabric/tutorial/index'
   - icon: 🖼
     title: Canvas
     details: Canvas toturial

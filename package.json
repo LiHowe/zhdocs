@@ -20,7 +20,7 @@
     "fabric": "^5.2.4",
     "nanoid": "^4.0.0",
     "sass": "^1.56.1",
-    "vitepress": "1.0.0-alpha.29",
+    "vitepress": "1.0.0-alpha.31",
     "vue": "^3.2.38"
   },
   "devDependencies": {

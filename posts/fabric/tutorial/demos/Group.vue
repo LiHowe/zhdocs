@@ -1,6 +1,6 @@
 <template>
   <Demo title="">
-    <FabricContainer>
+    <FabricContainer :mounted="mounted">
       <template #ops>
         <Btn @click="centerItems">居中组合元素</Btn>
         <Btn @click="addItemWithoutUpdate"> 1️⃣ 添加矩形(不更新)</Btn>
@@ -17,11 +17,22 @@
 import FabricContainer from '../../components/FabricContainer.vue';
 import { ref } from 'vue'
 
-
+// fabric
 const f = ref()
+// fabric canvas
 const c = ref()
 // the group
 const g = ref()
+
+function mounted(fb, canvas) {
+  f.value = fb
+  c.value = canvas
+  g.value = new fb.Group([], {
+    left: 20,
+    top: 20,
+  })
+  c.value.add(g.value)
+}
 
 function centerItems() {
   g.value.forEachObject(item => {
@@ -82,6 +93,7 @@ function addExistItemWithUpdate() {
 
 function reset() {
   c.value.clear()
+  mounted(f.value, c.value)
 }
 
 </script>
