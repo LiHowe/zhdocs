@@ -8,4 +8,3 @@
 | `strokeLineJoin`   | `string`  | 边框线相交策略               | `miter` |      |
 | `strokeMiterLimit` | `number`  | 相交限制                     | `4`     |      |
 | `strokeUniform`    | `boolean` | 边框宽度是否随着对象缩放变化 | `false` |      |
-|                    |

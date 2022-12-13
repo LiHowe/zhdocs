@@ -6,5 +6,6 @@
 | `cornerDashArray`    | `Array`          | 控制点虚线       | `null`             |                      |
 | `cornerStyle`        | `rect`, `circle` | 控制点形状       | `rect`             |                      |
 | `transparentCorners` | `boolean`        | 透明控制点       | `true`             |                      |
-| `touchCornerSize`    | `number`         | 触控控制点的大小 | `24`               |                      |
-|                      |
+| `touchCornerSize`    | `number`         | 触控控制点的大小  | `24`               |                      |
+| `hasControl`         | `boolean`        | 是否有控制点     | `true`             |                     |
+| `hasBorders`         | `boolean`        | 是否有边框       | `true`             |                     |

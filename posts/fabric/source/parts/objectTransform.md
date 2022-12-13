@@ -8,4 +8,3 @@
 | `originY` | `number`, `center`, `top`, `bottom` | 对象变换的水平中心       | `'top'`  |      |
 | `flipX`   | `boolean`                           | 水平翻转(渲染为水平镜像) | `false`  |      |
 | `flipY`   | `boolean`                           | 垂直翻转(渲染为垂直镜像) | `false`  |      |
-|           |

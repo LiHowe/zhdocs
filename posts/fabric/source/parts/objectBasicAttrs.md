@@ -1,6 +1,7 @@
 | <div style="width: 170px">属性名</div> | <div style="width: 170px">类型</div> | <div style="width: 170px">描述</div> | <div style="width: 100px">默认值</div> |
 | --- | --- | --- | --- |
 | `type`                     | `string` | 对象类型                                                                                                           | `object`           |      |
+| `visible`                  | `boolean`| 是否可见                                                                                                           | `true`           |      |
 | `top`                      | `number` | 顶部距离                                                                                                           | `0`                |      |
 | `left`                     | `number` | 左侧距离                                                                                                           | `0`                |      |
 | `width`                    | `number` | 宽度                                                                                                               | `0`                |      |
@@ -14,4 +15,3 @@
 | `globalCompositeOperation` |          | [合成操作类型](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation) |                    |      |
 | `borderColor`              | `string` | 边框颜色                                                                                                           | `rgb(178,204,255)` |      |
 | `borderDashArray`          | `Array`  | 边框虚线数组                                                                                                       | `null`             |      |
-|                            |
