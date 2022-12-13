@@ -25,10 +25,6 @@ fabric 文本相较于原始 canvas 文本为我们提供了以下功能:
 + 支持颜文字
 + 在画布上直接编辑文本
 
-## 试一试
-
-<TextPlayground />
-
 ## 使用
 
 ### 创建文本对象
@@ -87,3 +83,8 @@ console.log(text.text)
 | 路径起始边 | pathSide | `'left'`, `'right'` | `'left'` |
 | 路径对齐 | pathAlign | `'baseline'`, `'center'`, `'ascender'`, `'descender'` | `baseline` |
 
+## Playground
+
+<Demo>
+<TextPlayground />
+</Demo>

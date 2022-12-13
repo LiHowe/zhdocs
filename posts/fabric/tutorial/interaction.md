@@ -2,7 +2,7 @@
 title: 交互
 ---
 
-# {{ $frontmatter.title }}
+# {{ $frontmatter.title }} <Badge type="warning" text="WIP"/>
 
 
 
@@ -10,3 +10,4 @@ title: 交互
 
 首先我们先来看下fabric对象交互相关的属性:
 <!--@include: ../source/parts/control.md -->
+

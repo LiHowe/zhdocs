@@ -128,13 +128,13 @@ group.item(0).set({
 })
 ```
 
-### 追加元素
+### 追加/移除元素
 
-那么, 我又想**为组合添加一些新的元素**, 该如何操作呢?
+那么, 我又想**为组合添加/移除一些元素**, 该如何操作呢?
 
 ::: tip 先说结论, 有兴趣的可以阅读详细内容
 
-+ 使用 `addWithUpdate` 和 `removeWithUpdate` 来更新Group元素.
++ 使用 `addWithUpdate` 和 `removeWithUpdate` 来为Group添加或移除元素并更新Group
 + 将画布上已存在的元素添加到 Group 的操作顺序应该如下
   1. 调用 `clone()` 方法来复制一个待添加元素的副本
   2. 将副本添加到Group中

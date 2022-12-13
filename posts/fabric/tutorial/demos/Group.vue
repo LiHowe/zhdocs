@@ -1,5 +1,5 @@
 <template>
-  <Demo title="">
+  <Demo title="Group Playground">
     <FabricContainer :mounted="mounted">
       <template #ops>
         <Btn @click="centerItems">居中组合元素</Btn>
