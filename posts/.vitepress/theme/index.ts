@@ -6,7 +6,7 @@ import Image from '../components/Image.vue'
 import Button from '../components/Btn.vue'
 
 import './main.scss'
-import './iconfont.css'
+// import './iconfont.css'
 
 export default {
   ...DefaultTheme,

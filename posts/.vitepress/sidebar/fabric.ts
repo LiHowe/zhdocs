@@ -83,6 +83,10 @@ export const fabricSidebar = [
         link: s('canvas')
       },
       {
+        text: '对象',
+        link: s('object'),
+      },
+      {
         text: '图形',
         items: [
           {
