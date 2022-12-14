@@ -49,7 +49,7 @@ export const fabricSidebar = [
         link: t('interaction')
       },
       {
-        text: '事件绑定',
+        text: '事件',
         link: t('event')
       },
       {
@@ -57,7 +57,7 @@ export const fabricSidebar = [
         link: t('animation')
       },
       {
-        text: '绘制自定义图形类',
+        text: '自定义图形类',
         link: t('createClass')
       },
       {
@@ -65,7 +65,7 @@ export const fabricSidebar = [
         link: t('serialization')
       },
       {
-        text: '数据相关操作',
+        text: '杂项',
         link: t('others')
       },
     ]

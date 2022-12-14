@@ -1,5 +1,5 @@
 ---
-title: 颜色
+title: 颜色 - colors
 ---
 
 # {{ $frontmatter.title }}

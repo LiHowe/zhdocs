@@ -6,19 +6,27 @@
         <div>
           <Btn draggable="true" style="cursor: move;">我是可拖动元素</Btn>
           <Btn @click="clearLog">清空日志</Btn>
-          <template  v-if="target">
+          <template v-if="target">
             <Btn @click="changeTarget">切换目标事件元素</Btn>
-            <input id="eventful" :checked="target.evented" type="checkbox" @change="toggleEventful">
-            <label for="eventful">evented</label>
+            <Cbx :modelValue="target.evented" label="evented" @change="toggleEventful"/>
           </template>
         </div>
         <!-- 按钮操作块 -->
         <div class="opt-block" v-for="block in blocks">
           <p class="opt-title">{{ block.title }}</p>
-          <template v-for="btn in block.list">
+          <Cbx
+            v-for="btn in block.list"
+            v-model="btn.checked"
+            :key="btn.key"
+            :title="btn.key"
+            :label="btn.label"
+            inline
+            @change="(v: boolean) => handleClick(v, btn, block.target)"
+          />
+          <!-- <template v-for="btn in block.list">
             <input type="checkbox" :id="btn.key" :checked="btn.checked" @change="e => handleClick(e, btn, block.target)">
             <label :for="btn.key" :title="btn.key">{{ btn.label }}</label>
-          </template>
+          </template> -->
         </div>
         <!-- 日志块 -->
         <div class="log">
@@ -101,9 +109,8 @@ function clearLog() {
   logs.value.length = 0
 }
 
-function toggleEventful(e: Event) {
-  const { checked } = e.target as HTMLInputElement
-  rect.value.set('evented', checked)
+function toggleEventful(v: boolean) {
+  rect.value.set('evented', v)
 }
 
 function changeTarget() {
@@ -126,15 +133,13 @@ type OptItem = {
   checked: boolean,
 }
 
-function handleClick(e: Event, item: OptItem, target: any) {
+function handleClick(v: boolean, item: OptItem, target: any) {
   const { key } = item
-  const { checked } = e.target as HTMLInputElement
-  item.checked = checked
   const handler = (e: any) => {
     logs.value.unshift([new Date().toLocaleString('zh-cn'), key, e])
     if (logs.value.length > 20) logs.value.pop()
   }
-  if (checked) {
+  if (v) {
     target.on(key, handler)
   } else {
     target.off(key)

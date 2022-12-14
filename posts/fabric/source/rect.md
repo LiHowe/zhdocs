@@ -80,7 +80,7 @@ export class Rect extends FabricObject {
 
 `k = 0.5522847498`, 用于绘制矩形的 k 为 `kRect`, `kRect = 1 - 0.5522847498`
 
-笔者学识有限, 就不过多解释推导相关的东西了...
+本人学识有限, 就不过多解释推导相关的东西了...
 
 > 目前 CanvasRenderingContext2D 提供了 [roundRect](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/roundRect)
 > 方法供我们绘制圆角矩形, 且可以使用数组来操作每一个角的圆角半径.  

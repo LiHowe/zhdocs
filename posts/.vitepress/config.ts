@@ -11,6 +11,7 @@ export default defineConfig({
   head: [
     ['link', { rel: 'shortcut icon', type:"image/png", href:"/favicon.png"}],
     ['link', { rel: 'stylesheet', href:"https://at.alicdn.com/t/c/font_3805125_cozu3b9g23v.css"}],
+    ['meta', { name: 'baidu-site-verification', content: 'code-ba8rWWSLaq' }]
   ],
   themeConfig: {
     logo: '/favicon.png',
