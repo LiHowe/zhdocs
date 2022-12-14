@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitepress'
 import markdownItMermaidx from './plugin/markdown-it-mermaidx'
 import { fabricSidebar } from './sidebar/fabric'
+import { writeFileSync } from 'node:fs'
+import { join } from 'node:path'
 
 export default defineConfig({
   title: 'zhDocs',
@@ -43,4 +45,13 @@ export default defineConfig({
       md.use(markdownItMermaidx)
     }
   },
+  buildEnd(siteConfig) {
+    buildSitemap(siteConfig.pages, siteConfig.outDir)
+  }
 })
+
+function buildSitemap(pages: string[], outDir: string) {
+  const host = 'https://docs.hzzzh.tech/'
+  const sites: string[] = pages.map(str => host + str.replace('.md', '.html'))
+  writeFileSync(join(outDir, 'sitemap.txt') ,sites.join('\n'))
+}
