@@ -21,7 +21,7 @@ import Filter from './demos/Filter.vue'
 
 #### 语法
 
-```typescript
+```ts
 new fabric.Image.filters.Grayscale()
 new fabric.Image.filters.Grayscale({
   mode: 'average'
@@ -44,7 +44,7 @@ new fabric.Image.filters.Grayscale({
 ### 反转颜色 - Invert
 
 #### 语法
-```typescript
+```ts
 new fabric.Image.filters.Invert()
 ```
 
@@ -57,7 +57,7 @@ new fabric.Image.filters.Invert()
 
 #### 语法
 
-```typescript
+```ts
 new fabric.Image.filters.BlendColor({
   color: '#0055ff',
   mode: 'diff'
@@ -86,7 +86,7 @@ new fabric.Image.filters.BlendColor({
 
 #### 语法
 
-```typescript
+```ts
 new Blur({ blur: 0.5 })
 ```
 
@@ -99,7 +99,7 @@ new Blur({ blur: 0.5 })
 
 #### 语法
 
-```typescript
+```ts
 new Brightness({ brightness: 0.05 })
 ```
 
@@ -112,7 +112,7 @@ new Brightness({ brightness: 0.05 })
 
 #### 语法
 
-```typescript
+```ts
 new BlendImage({
  image: fabricImageObject,
  mode: 'multiply',

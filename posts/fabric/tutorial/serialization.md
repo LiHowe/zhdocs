@@ -8,7 +8,7 @@ title: 序列化
 
 fabric 的核心序列化方法为 `toObject()` 和 `toJSON()` 两种方法
 
-```typescript
+```ts
 const canvas = new fabric.Cavnas('#canvas')
 J
 

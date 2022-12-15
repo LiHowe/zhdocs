@@ -18,7 +18,7 @@ fabric 设置元素动画的方式有两种:
 
 我们可以通过 `obj.animate(attr, targetValue, options)` 方法来为画布元素添加动画效果, 比如我们将一个矩形的宽度变为双倍
 
-```typescript
+```ts
 const rect = new fb.Rect({
   width: 30,
   height: 50,
@@ -59,7 +59,7 @@ rect.animate('width', '*=2', {
 
 比如我们同时将两个矩形旋转180°, 一个顺时针一个逆时针.
 
-```typescript
+```ts
 const r1 = new fb.Rect({ 
   width: 80,
   height: 30,
@@ -95,6 +95,8 @@ import AnimationPlayground from './demos/Animation.vue'
 ## 取消动画
 
 ## 暂停/恢复动画
+
+## 路径动画
 
 ## Playground
 

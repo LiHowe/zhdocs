@@ -22,7 +22,7 @@ import GroupDemo from './demos/Group.vue'
 
 例如, 我们要将一个 Text 与一个 Circle 组合成一个新元素
 
-```typescript
+```ts
 // 创建文本
 const text = new fabric.Text('文本', {
   left: 10,
@@ -63,7 +63,7 @@ fb.add(group)
 我们需要给组内元素的 `left` 和 `top` 属性设置为 `0`, 然后添加 `originX`, `originY` 属性并设置
 为 `center` 即可.
 
-```typescript
+```ts
 // 创建文本
 const text = new fabric.Text('文本', {
   left: 10, // [!code --]
@@ -107,7 +107,7 @@ fb.add(group)
 
 所以, 我们可以使用多种方式来处理组合中的元素, 这里就不一一说明了.
 
-```typescript
+```ts
 // 居中全部元素
 group.forEachObject(item => {
   item.set({
@@ -156,7 +156,7 @@ fabric 提供了2种方式供我们添加/移除元素, 一种是添加/移除�
 
 1️⃣ 我们先来尝试下在**空**画布上使用 `add` 添加一个只有一个Rect的Group, 并查看效果
 
-```typescript
+```ts
 const g = new fabric.Group()
 g.add(new fabric.Rect({
   width: 30,
@@ -174,7 +174,7 @@ c.renderAll()
 
 2️⃣ 在上一步的基础上使用 `addWithUpdate` 为 Group 添加一个新的 Rect, 并查看效果
 
-```typescript
+```ts
 g.addWithUpdate(new fabric.Rect({
   width: 20,
   height: 20,
@@ -185,7 +185,7 @@ c.renderAll()
 
 3️⃣ 为画布添加一个 Rect, 然后将该 Rect 使用 `add` 添加到上一步的 Group 中
 
-```typescript
+```ts
 const r1 = new fabric.Rect({
   width: 50,
   height: 50,
@@ -198,7 +198,7 @@ c.renderAll()
 
 4️⃣ 为画布再添加一个 Rect, 然后使用 `addWithUpdate` 添加到 Group 中
 
-```typescript
+```ts
 const r2 = new fabric.Rect({
   width: 50,
   height: 50,

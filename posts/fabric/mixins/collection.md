@@ -15,7 +15,7 @@ docURL: http://fabricjs.com/docs/fabric.Collection.html
 参照源码定义的interface, 可以一览对象提供的属性及方法, 便于查看与理解.  
 源码请自行前往[GitHub](https://github1s.com/fabricjs/fabric.js/blob/HEAD/src/mixins/collection.mixin.ts)查看.
 
-```typescript
+```ts
 // fabric集合对象
 interface Collection {
   // 集合内对象
@@ -60,7 +60,7 @@ interface Collection {
 为了便于理解, 这里使用 `Canvas` 来测试该方法:
 > `fabric.Canvas` 是继承于 `Collection` 的
 
-```typescript
+```ts
   import { fabric } from 'fabric'
   let a = new fabric.Canvas()
   a.add(new fabric.Rect())

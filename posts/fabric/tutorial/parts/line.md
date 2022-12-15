@@ -5,7 +5,7 @@
 
 <Image src="https://s2.loli.net/2022/11/30/1R473TblgaAhyeZ.png" title="Line" />
 
-```typescript
+```ts
 // (0, 0) -> (100, 100) 的线段
 new fabric.Line([
   0, 0, 100, 100,

@@ -10,7 +10,7 @@ extends: Observable
 
 ## 概览
 
-```typescript
+```ts
 // Observable 为事件处理器
 export class CommonMethods extends Observable {
   _setOptions(options: any): void
@@ -25,7 +25,7 @@ export class CommonMethods extends Observable {
 
 ## 方法解释
 
-```typescript
+```ts
 // A已经继承了CommonMethods
 const a = new A()
 // a._set('name', 'lihowe')
@@ -84,7 +84,7 @@ console.log(fabric.CommonMethods)
 
 对应属性值必须为boolean类型
 
-```typescript {3-5}
+```ts {3-5}
 toggle(property: string) {
   const value = this.get(property);
   if (typeof value === 'boolean') {

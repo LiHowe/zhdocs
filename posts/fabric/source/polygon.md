@@ -10,7 +10,7 @@ Polygon 与 Polyline 分别对应源码中的 `shapes/polygon.class.ts` 与 `sha
 
 ## 构造函数 - `constructor`
 
-```typescript {8-9}
+```ts {8-9}
 export class Polyline extends FabricObject {
   // ... 其他属性及方法
   constructor(points: IPoint[] = [], { left, top, ...options }: any = {}) {
@@ -35,7 +35,7 @@ export class Polyline extends FabricObject {
 `setBoundingBox(adjustPosition?: boolean)` 接收一个可选的 `是否调整位置` 的标识参数, 在上一步中, 折线的构造函数
 传入该参数为 `true`, 所以我们就使用 `true` 来带入阅读.
 
-```typescript
+```ts
 export class Polyline extends FabricObject {
   // ... 其他属性及方法
   setBoundingBox(adjustPosition?: boolean) {
@@ -66,7 +66,7 @@ export class Polyline extends FabricObject {
 
 ### 计算边界盒子尺寸 - `_calcDimensions`
 
-```typescript
+```ts
 export class Polyline extends FabricObject {
   // ... 其他属性及方法
   _calcDimensions() {
@@ -126,7 +126,7 @@ export class Polyline extends FabricObject {
 
 找到points中最小的x, y与最大的x, y分别作为盒子的左上与右下顶点即可计算出盒子的 `left`, `top`, `width`, `height`
 
-```typescript
+```ts
 const { min, max } = points.reduce(
   ({ min, max }, curr) => {
     return {
@@ -162,7 +162,7 @@ const { min, max } = points.reduce(
 下面我们来看一下折线绘制过程
 1. 获取提供的点的长度以及
 
-```typescript {9-13,21}
+```ts {9-13,21}
 export class Polyline {
   // ... 其他属性及方法
   _render(ctx: CanvasRenderingContext2D) {

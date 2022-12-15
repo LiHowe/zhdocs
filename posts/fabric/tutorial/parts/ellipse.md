@@ -5,7 +5,7 @@
 
 <Image src="https://s2.loli.net/2022/11/30/DA5dI1hrQ3EvxVG.png" title="椭圆" />
 
-```typescript
+```ts
 // 无需设置宽高
 const ellipse = new fabric.Ellipse({
   rx: 100,

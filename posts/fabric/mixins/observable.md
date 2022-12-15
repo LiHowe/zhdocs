@@ -11,7 +11,7 @@ docURL: http://fabricjs.com/docs/fabric.Observable.html
 
 ## 概览
 
-```typescript
+```ts
 interface Observable {
   // 事件监听mapping
   private __eventListeners: Record<Function[]>
@@ -43,7 +43,7 @@ interface Observable {
 
 + 传入事件名称及处理方法
 
-```typescript
+```ts
 const handler = () => {}
 on('eventA', handler)
 off('eventA', handler)
@@ -51,7 +51,7 @@ off('eventA', handler)
 
 + 传入一个对象(用于一次绑定多个事件)
 
-```typescript
+```ts
 const evtMap = {
   eventA: () => {},
   eventB: () => {},

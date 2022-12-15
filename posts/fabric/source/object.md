@@ -51,7 +51,7 @@ FabricObject为 fabric 所有2d图形对象的父类, 部分图形继承链如�
 
 用来标识对象角位置(比如矩形的四个顶点拐角), 该属性值为一个对象
 
-```typescript
+```ts
 export type TCornerPoint = {
   tl: Point;
   tr: Point;

@@ -17,7 +17,7 @@ title: 初始化
 
 首先 `new fabric.Canvas(xx)` 为 fabric 实例的初始化方法, 所以我们通过在源码中全局搜索(`fabric.Canvas =`)找到 `Canvas` 类的定义文件 `canvas.class.ts`, 再从文件中找到对应的定义代码:
 
-```typescript {1}
+```ts {1}
 fabric.Canvas = fabric.util.createClass(
   fabric.StaticCanvas,
   { /* ... */ },
@@ -32,7 +32,7 @@ fabric.Canvas = fabric.util.createClass(
 
 ## 构造函数 | initialize
 
-```typescript
+```ts
 {
   initialize: function (el, options) {
     options || (options = {});
@@ -61,7 +61,7 @@ fabric.Canvas = fabric.util.createClass(
 
 `_initStatic` 方法位于 `static_canvas.class.ts`
 
-```typescript
+```ts
 {
   // static_canvas.class.ts
   _initStatic: function (el, options) {
@@ -115,7 +115,7 @@ fabric.Canvas = fabric.util.createClass(
 
 `_initInteractive` 方法位于 `canvas.class.ts`
 
-```typescript
+```ts
 {
   _initInteractive: function () {
     this._currentTransform = null;

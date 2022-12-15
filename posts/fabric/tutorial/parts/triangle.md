@@ -7,7 +7,7 @@
 
 #### 使用
 
-```typescript
+```ts
 new fabric.Triangle({
   width: 50,
   height: 70,

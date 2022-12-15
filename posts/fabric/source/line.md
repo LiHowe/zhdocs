@@ -13,7 +13,7 @@ source: line.class.ts
 
 `arc` 方法用来绘制一定角度的弧形, 语法为
 
-```typescript
+```ts
 function arc (
   x: number,                // 圆心x坐标
   y: number,                // 圆心y坐标
@@ -26,7 +26,7 @@ function arc (
 
 ### 源码解析
 
-```typescript
+```ts
 export class Circle {
   // ... 其他属性及方法
   _render(ctx: CanvasRenderingContext2D) {
@@ -63,7 +63,7 @@ export class Circle {
 
 源码:
 
-```typescript
+```ts
 export class Circle {
   // ... 其他属性及方法
   _toSVG(): (string | number)[] {

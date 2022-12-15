@@ -5,7 +5,7 @@
 
 比如我们创建一个半径为 `30` 的圆
 
-```typescript {4}
+```ts {4}
 import { fabric } from 'fabric'
 // 半径为 30
 const circle = new fabric.Circle({
@@ -19,7 +19,7 @@ console.log(circle.getRadiusX()) // -> 60
 circle 还提供了起始角度 `startAngle` 与结束角度 `endAngle` 设置,
 **那么我们想画一个 1/4 圆是不是直接直接分别赋值为`0` 与 `90` 就可以了呢?**
 
-```typescript {3,4}
+```ts {3,4}
 new fabric.Circle({
   radius: 30,
   startAngle: 0,
@@ -61,7 +61,7 @@ new fabric.Circle({
 ::: tip 常见问题
 
 1. 半圆的绘制
-```typescript
+```ts
 new fabric.Circle({
   radius: 30,
   startAngle: 0,

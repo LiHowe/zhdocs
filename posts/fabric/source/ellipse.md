@@ -7,7 +7,7 @@ title: 椭圆 - Ellipse
 椭圆本质上是将一个完整的正圆形进行**矩阵变换**, 在**垂直方向**上进行**缩放**.  
 相当于创建一个以 `rx` 为半径的圆形 `Circle`
 
-```typescript
+```ts
 new fabric.Ellipse({
   rx: 100,
   ry: 50,
@@ -20,7 +20,7 @@ new fabric.Circle({
 ```
 ## 构造函数 - `constructor`
 
-```typescript
+```ts
 export class Ellipse extends FabricObject {
   // ...
   constructor(options: Record<string, unknown>) {
@@ -56,7 +56,7 @@ export class Ellipse extends FabricObject {
 
 ### 源码解析
 
-```typescript
+```ts
 export class Triangle {
   // ...其他属性及方法
   _render(ctx: CanvasRenderingContext2D) {
@@ -82,7 +82,7 @@ export class Triangle {
 
 ### 源码解析
 
-```typescript
+```ts
 export class Triangle {
   // ...其他属性及方法
   _toSVG() {

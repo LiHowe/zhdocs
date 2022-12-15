@@ -31,13 +31,13 @@ fabric 文本相较于原始 canvas 文本为我们提供了以下功能:
 
 类似于创建图形, 创建文本对象的语法如下:
 
-```typescript
+```ts
 const text = new fabric.Text(text, options)
 ```
 
 如果同时提供了text 与 options 中的 text, 则优先使用 text
 
-```typescript
+```ts
 const text = new fabric.Text('lihowe', {
   text: '666'
 })

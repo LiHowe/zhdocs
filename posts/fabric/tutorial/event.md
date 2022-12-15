@@ -172,7 +172,7 @@ d --> e(mousemove) --> f(mouseup:before) --> g(mouseup) --> h(mouseout)
 
 同时, fabric 也支持使用 `on/once` 方法来绑定自定义事件, 搭配 `fire` 进行使用.
 
-```typescript
+```ts
 const rect = new fabric.Rect({
   width: 50,
   height: 40,
@@ -193,7 +193,7 @@ button.addEventListener('click', () => {
 
 :::details Demo: 分别为矩形和画布绑定事件
 
-```typescript
+```ts
 // 以 矩形-Rect 为例
 const c = new fabric.Canvas('#c')
 const rect = new fabric.Rect({ width: 20, height: 20 })

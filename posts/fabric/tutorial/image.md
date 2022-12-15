@@ -67,7 +67,7 @@ fabric 支持以下几种方式来创建图片对象
 
 我们依旧使用前面给到的图片路径 `https://s2.loli.net/2022/12/02/MJ7bfStW96GNVmk.png`
 
-```typescript
+```ts
 const fb = new fabric.Canvas('#fb')
 fabric.Image.fromURL('https://s2.loli.net/2022/12/02/MJ7bfStW96GNVmk.png', img => {
   fb.add(img)
@@ -81,7 +81,7 @@ fabric.Image.fromURL('https://s2.loli.net/2022/12/02/MJ7bfStW96GNVmk.png', img =
 
 <img id="imageEl" src="https://s2.loli.net/2022/12/02/MJ7bfStW96GNVmk.png" height="200" width="200" style="display: none" />
 
-```typescript
+```ts
 const fb = new fabric.Canvas('#fb')
 const imgEl = document.querySelector('imageEl')
 // 直接创建

@@ -11,7 +11,7 @@
 
 让我们先试着绘制一个梯形
 
-```typescript
+```ts
 // 折线
 const pl = new fabric.Polyline([
   { x: 10, y: 30 },
@@ -40,13 +40,13 @@ const po = new fabric.Polygon([
 有填充(`fill`) 无边框(`stroke`)的  
 我们可以通过 `console.log()` 将其中一个对象的 `fill` 与 `stroke` 打印出来进行查看验证
 
-```typescript
+```ts
 console.log(`折线填充:${pl.fill}, 折线边框: ${pl.stroke}`)
 // -> 折线填充:rgb(0,0,0), 折线边框: null
 ```
 我们修改上面代码, 为折线设置填充与边框
 
-```typescript
+```ts
 pl.set('stroke', '#000')
 pl.set('fill', null)
 ```

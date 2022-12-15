@@ -9,7 +9,7 @@ fabric 还支持类似于SVG路径的路径元素, 比如我们有以下路径�
 
 我们使用fabric来绘制该路径
 
-```typescript
+```ts
 const canvas = new fabric.Canvas()
 const path = new fabric.Path('M 0 0 L 200 100 L 170 200 z')
 // 设置path图形的位置

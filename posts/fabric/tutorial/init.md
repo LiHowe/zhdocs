@@ -41,7 +41,7 @@ description: 如何初始化fabric
 </div>
 ```
 通过下面代码来改变默认的div class
-```typescript{2}
+```ts{2}
 const fabricObj = new fabric.Canvas('#demo1', {
   containerClass: 'custom-class custom-class2'
 })

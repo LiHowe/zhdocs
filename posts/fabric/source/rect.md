@@ -9,7 +9,7 @@ source: rect.class.ts
 
 矩形的构造函数十分简单, 直接放代码
 
-```typescript
+```ts
 export class Rect extends FabricObject {
   // ... 其他属性及方法
   constructor(options: Record<string, unknown>) {
@@ -23,7 +23,7 @@ export class Rect extends FabricObject {
 
 该方法用来实现: 用户只提供了一个 `rx` 或者 `ry` 的时候使 `rx` 与 `ry` 保持相等
 
-```typescript
+```ts
 export class Rect extends FabricObject {
   // ...
   _initRxRy() {
@@ -86,7 +86,7 @@ export class Rect extends FabricObject {
 > 方法供我们绘制圆角矩形, 且可以使用数组来操作每一个角的圆角半径.  
 > 使用该方法需要考虑浏览器兼容性问题, 比如 chrome ver99+ 才支持该特性
 
-```typescript
+```ts
 export class Rect {
   // 其他属性及方法
   _render(ctx: CanvasRenderingContext2D) {
@@ -173,7 +173,7 @@ export class Rect {
 
 ::: details 方法源码
 
-```typescript
+```ts
 export class Rect {
   // 其他属性及方法
   _toSVG() {

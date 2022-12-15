@@ -15,7 +15,7 @@ title: 三角形 - Triangle
 
 ::: details 源码解析
 
-```typescript
+```ts
 export class Triangle {
   // ...其他属性及方法
   _render(ctx: CanvasRenderingContext2D) {
@@ -44,7 +44,7 @@ export class Triangle {
 
 ::: details 源码解析
 
-```typescript
+```ts
 export class Triangle {
   // ...其他属性及方法
   _toSVG() {

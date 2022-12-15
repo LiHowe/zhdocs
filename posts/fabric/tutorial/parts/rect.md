@@ -5,7 +5,7 @@
 
 #### 使用
 
-```typescript
+```ts
 new fabric.Rect({
   width: 100,
   height: 40,

@@ -8,7 +8,7 @@ source: util/lang_class.ts
 下面我们来简单的看一下 `createClass` 方法的定义
 > 文件位于 `util/lang_class.ts`
 
-```typescript
+```ts
 // 我们将Canvas的定义参数带入进行阅读
 // 实质上就是组合继承
 export function createClass(...args) {
