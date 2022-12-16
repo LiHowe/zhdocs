@@ -12,9 +12,16 @@ export default defineConfig({
   lastUpdated: true,
   head: [
     ['link', { rel: 'shortcut icon', type:"image/png", href:"/favicon.png"}],
-    ['link', { rel: 'stylesheet', href:"https://at.alicdn.com/t/c/font_3805125_cozu3b9g23v.css"}],
+    ['link', { rel: 'stylesheet', href:"https://at.alicdn.com/t/c/font_3805125_bqg8tddlim.css"}],
     ['meta', { name: 'baidu-site-verification', content: 'code-ba8rWWSLaq' }],
     ['meta', { name: 'google-site-verification', content: 'YqU4J_mHcs31yFT50uAtgZXtmZKROaIfx8OU99aZRlc' }],
+    ['script', { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-HTB2VJ8RJL' }],
+    ['script', {}, `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HTB2VJ8RJL');
+  `]
   ],
   themeConfig: {
     logo: '/favicon.png',
@@ -35,6 +42,11 @@ export default defineConfig({
       next: '下一节'
     },
     lastUpdatedText: '最后更新时间',
+    algolia: {
+      appId: 'LQDYDCVDD1',
+      apiKey: 'b67b07549fbcb9a70f3c53b1c3a699ac',
+      indexName: 'docs',
+    }
   },
   markdown: {
     toc: {

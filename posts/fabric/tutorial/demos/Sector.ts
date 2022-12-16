@@ -22,16 +22,37 @@ export const Sector = fabric.util.createClass(fabric.Circle, { // [!code hl]
   }
 })
 
+
+export const LabeledRect = fabric.util.createClass(fabric.Rect, {
+  label: '',
+  type: 'labeledRect',
+  fontsize: 20,
+  color: '#333',
+  _render(ctx: CanvasRenderingContext2D) {
+    this.callSuper('_render', ctx)
+    ctx.font = `${this.fontsize}px Helvetica`
+    ctx.fillStyle = this.color
+    const { width } = ctx.measureText(this.label)
+    ctx.fillText(
+      this.label,
+      -(this.width-width/2) / 2,
+      -(this.height - this.fontsize) / 2 + this.fontsize
+      )
+  }
+})
+
 // 螺旋
 export const Spiral = fabric.util.createClass(fabric.Object, {
   step: 5,
   radius: 10,
   initialize(opts = {}) {
-    this.callSuper(opts)
+    this.callSuper('initialize', opts)
+    this.set('width', this.radius * 2)
+    this.set('height', this.radius * 2)
   },
   _render(ctx: CanvasRenderingContext2D) {
     ctx.beginPath()
-      ctx.arc(this.left, this.top, r, r, r+1)
-      ctx.stroke()
+    // TODO:
+    ctx.stroke()
   }
 })

@@ -2,7 +2,7 @@
 title: 创建自定义图形类 - CreateClass
 ---
 
-# {{ $frontmatter.title }}
+# {{ $frontmatter.title }} <Badge type="warning" text="WIP"/>
 
 fabric 还提供了让我们创建自己的类与子类的能力, 通过 `util.createClass` 方法, 我们可以创建新的图形类以方便我们开发使用.
 
@@ -57,17 +57,27 @@ canvas.add(sector, circle)
 
 ```
 
-再让我们创建一个**稍微**复杂一点的图形, 比如...一个按钮?
-
-假设我们需要创建的按钮需要有以下内容:
-
-1. 支持icon
-2. 支持文字
+再让我们创建一个**稍微**复杂一点的图形, 比如...一个带文字的矩形?
 
 ```ts
-export const Button = fabric.util.createClass()
+export const LabeledRect = fabric.util.createClass(fabric.Rect, {
+  label: '',
+  type: 'labeledRect',
+  fontsize: 20, // 设置字体大小
+  color: '#333', // 设置文字颜色
+  _render(ctx: CanvasRenderingContext2D) {
+    this.callSuper('_render', ctx)
+    ctx.font = `${this.fontsize}px Helvetica`
+    ctx.fillStyle = this.color
+    const { width } = ctx.measureText(this.label)
+    ctx.fillText(
+      this.label,
+      -(this.width - width / 2) / 2,
+      -(this.height - this.fontsize) / 2 + this.fontsize
+      )
+  }
+})
 ```
-
 
 ## Playground
 

@@ -5,6 +5,7 @@ import Demo from '../components/Demo.vue'
 import Image from '../components/Image.vue'
 import Button from '../components/Btn.vue'
 import Checkbox from '../components/Cbx.vue'
+import Icon from '../components/Icon.vue'
 
 import './main.scss'
 // import './iconfont.css'
@@ -18,5 +19,6 @@ export default {
     ctx.app.component('Image', Image)
     ctx.app.component('Btn', Button)
     ctx.app.component('Cbx', Checkbox)
+    ctx.app.component('Icon', Icon)
   }
 }

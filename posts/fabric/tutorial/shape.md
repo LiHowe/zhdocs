@@ -14,7 +14,7 @@ Fabric 内置了7种基本图形:
 7. 三角形 (`fabric.Triangle`)
 
 使用 `new fabric.Rect(options?)` 进行创建图形, 所有的图形对象都继承了 [fabric.Object](../source/object.md), 具体共通属性及方法请
-前往 [源码解析/Object](../source/object.md) 查看, 这里我们只根据各个图形的特有属性来进行说明.
+前往 [源码解析/对象](../source/object.md) 查看, 这里我们只根据各个图形的特有属性来进行说明.
 
 <!--@include: ./parts/rect.md-->
 
@@ -27,4 +27,3 @@ Fabric 内置了7种基本图形:
 <!--@include: ./parts/line.md-->
 
 <!--@include: ./parts/polygon.md-->
- 

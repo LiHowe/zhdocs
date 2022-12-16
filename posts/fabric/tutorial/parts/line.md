@@ -1,7 +1,7 @@
-### 线段 - Line
+## 线段 - Line
 <br/>
 
-#### 使用
+### 使用
 
 <Image src="https://s2.loli.net/2022/11/30/1R473TblgaAhyeZ.png" title="Line" />
 
@@ -20,7 +20,7 @@ new fabric.Line([
 
 :::
 
-#### 图形属性及方法
+### 图形属性及方法
 
 绘制一条线段需要两个端点, 所以线段的属性为两个端点的x, y坐标
 
@@ -31,8 +31,6 @@ new fabric.Line([
 | x2  | 终点的x坐标 | `0` |
 | y2  | 终点的y坐标 | `0` |
 
-#### 源码解析
+### 源码解析
 
 源码解析请前往 [源码解析/线段](/fabric/source/line.md) 进行查看.
-
----
