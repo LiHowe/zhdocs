@@ -6,6 +6,7 @@
         <Btn @click="createCircle">绘制圆形</Btn>
         <Btn @click="createCircle">绘制按钮</Btn>
         <Btn @click="createSpiral">绘制螺旋</Btn>
+        <Btn @click="createButton">绘制按钮</Btn>
       </template>
     </FabricContainer>
   </Demo>
@@ -13,7 +14,7 @@
 <script setup lang="ts">
 import FabricContainer from '../../components/FabricContainer.vue';
 import { ref } from 'vue'
-import { Sector, Spiral } from './Sector';
+import { Sector, Spiral, LabeledRect } from './Sector';
 
 
 const fb = ref()
@@ -51,6 +52,18 @@ function createSpiral() {
     radius: 40,
   })
   canvas.value.add(s)
+}
+
+function createButton() {
+  const b = new LabeledRect({
+    label: 'HZZZH',
+    width: 100,
+    height: 50,
+    rx: 10,
+    fill: '#00a001',
+    color: '#fff'
+  })
+  canvas.value.add(b)
 }
 </script>
 <style scoped>

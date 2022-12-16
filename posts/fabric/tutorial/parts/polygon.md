@@ -1,10 +1,10 @@
-### 多边形 - Polygon, 折线 - Polyline
+## 多边形 - Polygon, 折线 - Polyline
 <br/>
 
 `Polygon` 实质上就是闭合的折线 (`Polyline`),
 `Polygon` 对象继承于 `Polyline`, 
 
-#### 使用
+### 使用
 
 多边形与折线的构造方法参数相同, 这里以折线为例:  
 `new fabric.Polyline([折线起点到终点的所有点的坐标], 可选的其他设置)`
@@ -55,8 +55,7 @@ pl.set('fill', null)
 
 <Image src="https://s2.loli.net/2022/12/01/M5gsGXeDEbH19iy.png" title="多边形 | 折线" />
 
-#### 源码解析
+### 源码解析
 
 源码解析请前往[源码解析/折线及多边形](/fabric/source/polygon.md)查看
 
----

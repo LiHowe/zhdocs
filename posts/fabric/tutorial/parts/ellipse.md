@@ -1,7 +1,7 @@
-### 椭圆 - Ellipse
+## 椭圆 - Ellipse
 <br/>
 
-#### 使用
+### 使用
 
 <Image src="https://s2.loli.net/2022/11/30/DA5dI1hrQ3EvxVG.png" title="椭圆" />
 
@@ -15,7 +15,7 @@ console.log(ellipse.width) // -> 200
 console.log(ellipse.height) // -> 100
 ```
 
-#### 图形属性及方法
+### 图形属性及方法
 
 | 属性  | 描述       | 默认值 |
 |-----|----------|-----|
@@ -34,8 +34,6 @@ console.log(ellipse.height) // -> 100
 
 :::
 
-#### 源码解析
+### 源码解析
 
 源码解析请前往 [源码解析/椭圆](/fabric/source/ellipse.md) 进行查看.
-
----
