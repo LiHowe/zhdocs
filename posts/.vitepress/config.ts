@@ -12,7 +12,7 @@ export default defineConfig({
   lastUpdated: true,
   head: [
     ['link', { rel: 'shortcut icon', type:"image/png", href:"/favicon.png"}],
-    ['link', { rel: 'stylesheet', href:"https://at.alicdn.com/t/c/font_3805125_cozu3b9g23v.css"}],
+    ['link', { rel: 'stylesheet', href:"https://at.alicdn.com/t/c/font_3805125_bqg8tddlim.css"}],
     ['meta', { name: 'baidu-site-verification', content: 'code-ba8rWWSLaq' }],
     ['meta', { name: 'google-site-verification', content: 'YqU4J_mHcs31yFT50uAtgZXtmZKROaIfx8OU99aZRlc' }],
     ['script', { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-HTB2VJ8RJL' }],
