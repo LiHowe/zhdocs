@@ -1,4 +1,4 @@
-import { defineComponent, getCurrentInstance, h, onBeforeMount, onMounted, onUpdated, ref } from 'vue'
+import { defineComponent, h, onBeforeMount, ref } from 'vue'
 import { nanoid } from 'nanoid'
 import Mermaid from 'mermaid'
 
@@ -40,13 +40,23 @@ export default defineComponent({
       })
     }
 
+    // onMounted(() => {
+      // const svg = new DOMParser().parseFromString(document.querySelector(`#${id}`), "image/svg+xml")
+      // console.log(svg)
+      // const xml = new XMLSerializer().serializeToString(document.querySelector(`#${id}`))
+      // const url = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(content.value)))
+      // const img = new Image()
+      // img.src = url
+      // el.value.appendChild(img)
+    // })
+
     onBeforeMount(render)
     return () =>
-      h('div', {
+      [h('div', {
         id,
         ref: el,
         class: ['mermaid-svg-wrapper', 'mermaid'],
         innerHTML: content.value
-      })
+      })]
   }
 })
