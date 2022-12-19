@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import FabricContainer from '../../components/FabricContainer.vue';
 import { ref } from 'vue'
+import { fabric } from 'fabric'
 
 // the rect
 const r = ref()
@@ -30,6 +31,7 @@ function mounted(fb, c) {
   c.add(rect)
   r.value = rect
   initCheckbox()
+  useZoom(c)
 }
 
 type CtrlItme = {
@@ -91,6 +93,26 @@ function initCheckbox() {
 
 function handleChange(item: CtrlItme, v: boolean) {
   r.value.set(item.key, v)
+}
+
+function useZoom(canvas: fabric.Canvas, opt?: {
+  max: number,
+  min: number
+} = {
+  max: 20,
+  min: 0.01,
+}) {
+  canvas.on('mouse:wheel', ({ e, pointer }) => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    const delta = e.deltaY
+    let zoom = canvas.getZoom()
+    zoom *= 0.999 ** delta
+    canvas.zoomToPoint({ x: e.offsetX, y: e.offsetY }, zoom)
+
+    console.log(canvas.viewportTransform)
+  })
 }
 
 </script>

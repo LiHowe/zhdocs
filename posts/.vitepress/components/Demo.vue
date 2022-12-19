@@ -37,6 +37,11 @@ function reload() {
   border: 1px solid var(--vp-c-divider-light);
   border-radius: 8px;
 
+  :deep(div[class*="language-"]) {
+    margin: 0;
+    border-radius: 0;
+  }
+
   .title {
     display: flex;
     align-items: center;
@@ -54,8 +59,8 @@ function reload() {
     margin-left: auto;
   }
   .content {
-    padding: 16px;
-    overflow: auto;
+    width: 100%;
+    overflow: hidden auto;
   }
 }
 

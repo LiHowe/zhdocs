@@ -1,7 +1,7 @@
 <template>
   <div ref="c">
     <canvas ref="canvas" width="500" height="300"></canvas>
-    <div class="ops-container">
+    <div class="ops-container" v-if="$slots.ops">
       <slot name="ops"></slot>
     </div>
   </div>
