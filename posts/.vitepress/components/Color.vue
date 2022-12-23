@@ -19,6 +19,10 @@ function handleChange(e) {
 
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.zh-color {
+  .label {
+    font-size: 13px;
+  }
+}
 </style>

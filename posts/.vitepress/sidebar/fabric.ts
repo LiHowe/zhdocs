@@ -25,8 +25,8 @@ export const fabricSidebar = [
         link: t('path')
       },
       {
-        text: '样式调整',
-        link: t('customization')
+        text: '绘制文字',
+        link: t('text')
       },
       {
         text: '绘制图片',
@@ -37,13 +37,10 @@ export const fabricSidebar = [
         link: t('imageFilter')
       },
       {
-        text: '绘制文字',
-        link: t('text')
-      },
-      {
-        text: '组合元素',
+        text: '组合',
         link: t('group')
       },
+
       {
         text: '交互',
         link: t('interaction')
@@ -57,8 +54,16 @@ export const fabricSidebar = [
         link: t('animation')
       },
       {
-        text: '自定义图形类',
+        text: '自定义样式',
+        link: t('customization')
+      },
+      {
+        text: '自定义图形',
         link: t('createClass')
+      },
+      {
+        text: '自定义控制点',
+        link: t('customControl')
       },
       {
         text: '序列化',
