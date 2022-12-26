@@ -2,7 +2,7 @@
 title: 序列化
 ---
 
-# {{ $frontmatter.title }} <Badge type="warning" text="WIP"/>
+# {{ $frontmatter.title }} 
 
 <script setup>
 import Runnable from '../components/Runnable.vue'
@@ -56,7 +56,7 @@ toJSON() {
 }
 ```
 
-等同于 `toObject()`, 无参数设置.
+等同于调用不传参的 `toObject()`
 
 ## 图片输出
 

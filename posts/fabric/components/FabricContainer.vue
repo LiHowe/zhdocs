@@ -24,7 +24,7 @@ const c = ref<HTMLDivElement>()
 onMounted(() => {
   fb.value = new fabric.Canvas(canvas.value!, {
     containerClass: 'fb-container',
-    width: c.value?.clientWidth
+    width: c.value?.clientWidth,
   })
   props.mounted && props.mounted(fabric, fb.value)
 })
