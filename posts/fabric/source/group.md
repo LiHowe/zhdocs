@@ -1,5 +1,5 @@
 ---
-title: 图片 - Image
+title: 组合 - Group
 ---
 
 # {{ $frontmatter.title }}

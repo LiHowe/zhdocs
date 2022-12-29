@@ -42,6 +42,14 @@ fabric canvas 与 fabricObject 均支持使用 `on`, `once`, `off` 进行事件�
 
 画布事件主要用来监听整个画布内元素的变动、选中以及更新，还可以用来监听鼠标的各类事件。
 
+#### 渲染相关
+
+| 事件名称 | 描述 |
+| ------ | -- |
+| `canvas:cleared` | 画布清除后 |
+| `before:render` | 渲染前 |
+| `after:render` | 渲染后 |
+
 #### 对象监听
 
 | 事件名称 | 描述 |

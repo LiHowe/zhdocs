@@ -3,38 +3,48 @@
     <div class="runnable-header">
       <span>
         <Icon name="terminal" />
-        <span class="title-content">{{ title ?? 'Try it' }}</span>
+        <span class="title-content">{{ title }}</span>
       </span>
-      <Btn class="play-btn" @click="run" title="run" icon="play"></Btn>
+      <Btn class="play-btn" @click="run" title="点击运行" icon="play"></Btn>
     </div>
     <div>
+      <fabric-container v-if="type === 'view'" :mounted="fbMounted"/>
       <div class="runnable-code" ref="code">
         <slot></slot>
       </div>
-      <div class="runnable-result">
+      <div class="runnable-result" v-if="type === 'log'">
         <p v-for="(log, i) in logs">{{i + 1}}. {{ log }}</p>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-import { fabric } from 'fabric';
+import { ref, withDefaults, onMounted } from 'vue'
+import FabricContainer from './FabricContainer.vue'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   title?: string
-}>()
+  type?: 'log' | 'view'
+  auto?: boolean // 是否自动运行
+}>(), {
+  type: 'log',
+  title: 'Try it',
+  auto: false,
+})
 
 const code = ref<HTMLDivElement>()
 
 const logs = ref<any[]>([])
+
+const canvas = ref()
+const fb = ref()
 
 function run() {
   if (!code.value) return
   const codeDiv = code.value.querySelector('pre.shiki') as HTMLDivElement
   const fnStr = codeDiv.innerText
   if (!fnStr) return
-  const fn = new Function('fabric', 'logs', `
+  const fn = new Function('fabric', 'logs', 'canvas', `
   const console = {
     log(...args) {
       logs.push(...args)
@@ -45,11 +55,28 @@ function run() {
   `)
   try {
     logs.value = []
-    fn(fabric, logs.value)
+    canvas.value.clear()
+    fn(fb.value, logs.value, canvas.value)
   } catch(e) {
     console.error(e)
   }
 }
+
+function fbMounted(f, c) {
+  canvas.value = c
+  fb.value = f
+}
+
+onMounted(() => {
+  if (props.auto) {
+    try {
+      run()
+    } catch (e) {
+      console.log(e)
+    }
+  }
+})
+
 </script>
 
 <style scoped lang="scss">

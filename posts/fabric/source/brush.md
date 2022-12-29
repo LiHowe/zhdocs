@@ -1,5 +1,6 @@
 ---
-title: 图片 - Image
+title: 笔刷 - Brush
 ---
 
 # {{ $frontmatter.title }}
+
