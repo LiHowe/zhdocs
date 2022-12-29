@@ -5,7 +5,7 @@
         <Icon name="terminal" />
         <span class="title-content">{{ title }}</span>
       </span>
-      <Btn class="play-btn" @click="run" title="run" icon="play"></Btn>
+      <Btn class="play-btn" @click="run" title="点击运行" icon="play"></Btn>
     </div>
     <div>
       <fabric-container v-if="type === 'view'" :mounted="fbMounted"/>
@@ -19,15 +19,17 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, withDefaults } from 'vue'
+import { ref, withDefaults, onMounted } from 'vue'
 import FabricContainer from './FabricContainer.vue'
 
 const props = withDefaults(defineProps<{
   title?: string
   type?: 'log' | 'view'
+  auto?: boolean // 是否自动运行
 }>(), {
   type: 'log',
-  title: 'Try it'
+  title: 'Try it',
+  auto: false,
 })
 
 const code = ref<HTMLDivElement>()
@@ -64,6 +66,17 @@ function fbMounted(f, c) {
   canvas.value = c
   fb.value = f
 }
+
+onMounted(() => {
+  if (props.auto) {
+    try {
+      run()
+    } catch (e) {
+      console.log(e)
+    }
+  }
+})
+
 </script>
 
 <style scoped lang="scss">

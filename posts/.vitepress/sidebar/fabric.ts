@@ -1,7 +1,8 @@
 const perfix = '/fabric'
 const t = (path: string) => `${perfix}/tutorial/${path}`
 const s = (path: string) => `${perfix}/source/${path}`
-
+// demo path
+const d = (path: string) => `${perfix}/demos/${path}/index.md`
 
 export const fabricSidebar = [
   {
@@ -40,7 +41,10 @@ export const fabricSidebar = [
         text: '组合',
         link: t('group')
       },
-
+      {
+        text: '画笔',
+        link: t('freeDraw')
+      },
       {
         text: '交互',
         link: t('interaction')
@@ -125,6 +129,10 @@ export const fabricSidebar = [
         ]
       },
       {
+        text: '笔刷',
+        link: s('brush')
+      },
+      {
         text: '图片',
         link: s('image')
       },
@@ -148,6 +156,19 @@ export const fabricSidebar = [
         text: '动画',
         link: s('animation')
       },
+    ]
+  },
+  {
+    text: 'Demos',
+    items: [
+      {
+        text: 'MiniMap',
+        link: d('minimap'),
+      },
+      {
+        text: '范围限制',
+        link: d('limits'),
+      }
     ]
   },
   {
