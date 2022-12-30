@@ -19,17 +19,15 @@ fabric 默认的框选矩形样式为
 + `selectionLineWidth`：框选矩形边框的粗细
 + `selection`: 是否支持框选
 
-<Demo>
+<Runnable type="view">
 
 ```ts
-const c = new fabric.Canvas('c')
-c.selectionColor = 'rgba(187 222 251/.1)'
-c.selectionBorderColor = '#2196f3'
-c.selectionLineWidth = 1
+canvas.selectionColor = 'rgba(187 222 251/.1)'
+canvas.selectionBorderColor = '#2196f3'
+canvas.selectionLineWidth = 1
 ```
 
-<FabricContainer :mounted="mounted1" ></FabricContainer>
-</Demo>
+</Runnable>
 
 ## 画布背景
 

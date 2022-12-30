@@ -10,6 +10,8 @@
           v-model="c.checked"
           @change="(v: boolean) => handleChange(c, v)"
         />
+        <Btn @click="selectAll">选中全部</Btn>
+        <Btn @click="getActiveObj">获取选中元素</Btn>
       </template>
     </FabricContainer>
   </Demo>
@@ -22,16 +24,22 @@ import { fabric } from 'fabric'
 // the rect
 const r = ref()
 
+const canvas = ref()
+
 function mounted(fb, c) {
   const rect = new fb.Rect({
     width: 60,
     height: 60,
     fill: '#42b883'
   })
-  c.add(rect)
+  const circle = new fb.Circle({
+    radius: 50,
+    left: 50
+  })
+  c.add(rect, circle)
+  canvas.value = c
   r.value = rect
   initCheckbox()
-  useZoom(c)
 }
 
 type CtrlItme = {
@@ -93,6 +101,18 @@ function initCheckbox() {
 
 function handleChange(item: CtrlItme, v: boolean) {
   r.value.set(item.key, v)
+}
+
+function getActiveObj() {
+  console.log('getActiveObject', canvas.value.getActiveObject())
+  console.log('getActiveObjects', canvas.value.getActiveObjects())
+}
+
+function selectAll() {
+  canvas.value.discardActiveObject()
+  const selection = new fabric.ActiveSelection(canvas.value.getObjects(), { canvas: canvas.value })
+  canvas.value.setActiveObject(selection)
+  canvas.value.requestRenderAll()
 }
 
 function useZoom(canvas: fabric.Canvas, opt?: {

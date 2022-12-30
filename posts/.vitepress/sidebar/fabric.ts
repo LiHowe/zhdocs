@@ -73,10 +73,6 @@ export const fabricSidebar = [
         text: '序列化',
         link: t('serialization')
       },
-      {
-        text: '杂项',
-        link: t('others')
-      },
     ]
   },
   {

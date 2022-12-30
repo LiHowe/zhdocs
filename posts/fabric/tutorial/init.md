@@ -49,37 +49,90 @@ const fabricObj = new fabric.Canvas('#demo1', {
 :::
 
 
-:::info Demo
-<div class="playground">
-  <canvas ref="demo1"  height="200" width="200" ></canvas>
-</div>
-:::
+<Runnable type="view">
+
+```ts
+const r = new fabric.Rect({ width: 20, height: 20, fill: '#e9e9e9' })
+
+const c = new fabric.Circle({ radius: 30, left: 33 })
+
+canvas.add(r, c)
+```
+
+</Runnable>
+
 
 <script setup lang="ts">
-import { fabric } from 'fabric'
-import { ref, onMounted } from 'vue'
+import Runnable from '../components/Runnable.vue'
+</script>
 
-const demo1 = ref()
+## 静态画布
 
-onMounted(() => {
-  const r = new fabric.Rect({ width: 20, height: 20, fill: '#e9e9e9' })
+fabric 还提供了 `StaticCavnas` 来供我们创建静态画布（用于展示， 无交互），
+创建静态画布的语法与普通画布相同 
 
-  const c = new fabric.Circle({ radius: 30, left: 33 })
+```ts
+const staticCanvas = new fabric.StaticCanvas('#demo1')
+```
+
+## 清空与销毁画布
+
+### 清空画布
+
+调用 `canvas.clear()` 来清空画布内容
+
+### 销毁画布
+
+调用 `canvas.destory()` 来销毁画布
 
 
-  const f1 = new fabric.Canvas(demo1.value, {
-    containerClass: 'demo-canvas',
-    selectionKey: 'ctrlKey'
-  })
+## 背景颜色设置
 
-  f1.add(r, c)
+我们可以为画布设置背景颜色或者背景图片.
+
+:::tip 提示
+背景色与背景图片可以共存
+:::
+
+<Runnable type="view">
+
+```ts
+addBtn({
+  label: '改变背景色',
+  onClick: () => {
+    canvas.backgroundColor = '#00a001'
+    canvas.renderAll()
+  }
 })
 
-</script>
+addBtn({
+  label: '改变背景图片',
+  onClick: () => {
+    canvas.setBackgroundImage('https://s2.loli.net/2022/12/29/EkIqLZorWHKY4TA.webp', canvas.renderAll.bind(canvas))
+  }
+})
+
+addBtn({
+  label: '添加前景图片',
+  onClick: () => {
+    canvas.setOverlayImage('https://media.giphy.com/media/MiMkaPISiQP16xZpQT/giphy.gif', canvas.renderAll.bind(canvas))
+  }
+})
+
+addBtn({
+  label: '添加矩形',
+  onClick: () => {
+    canvas.add(new fabric.Rect({ width: 40, height: 50, fill: 'red' }))
+  }
+})
+```
+
+</Runnable>
+
 
 ## fabric 相关全局配置
 
-`new fabric.Canvas` 常用配置
+`Canvas`/ `StaticCanvas` 常用配置
 
 + `containerClass`: `string`
 
@@ -153,8 +206,8 @@ canvas是否会触发鼠标中键点击事件
 
 ### 鼠标指针设置
 
-+ `hoverCursor`: 鼠标悬浮指针
-+ `moveCursor`: 移动指针
-+ `defaultCursor`: 默认指针
-+ `freeDrawingCursor`: 自由绘制指针
-+ `notAllowedCursor`: 禁用指针
++ `hoverCursor`: 设置鼠标悬浮指针
++ `moveCursor`: 设置移动指针
++ `defaultCursor`: 设置默认指针
++ `freeDrawingCursor`: 设置自由绘制指针
++ `notAllowedCursor`: 设置禁用指针
