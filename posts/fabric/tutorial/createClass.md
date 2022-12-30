@@ -2,7 +2,7 @@
 title: 创建自定义图形类 - CreateClass
 ---
 
-# {{ $frontmatter.title }} <Badge type="warning" text="WIP"/>
+# {{ $frontmatter.title }} 
 
 fabric 还提供了让我们创建自己的类与子类的能力, 通过 `util.createClass` 方法, 我们可以创建新的图形类以方便我们开发使用.
 

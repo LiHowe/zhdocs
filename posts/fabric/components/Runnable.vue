@@ -9,9 +9,24 @@
     </div>
     <div>
       <fabric-container v-if="type === 'view'" :mounted="fbMounted"/>
-      <div class="runnable-code" ref="code">
+
+      <div class="ops-container">
+        <Btn v-for="b in opsList" :key="b.label" @click="b.onClick">
+          {{ b.label }}
+        </Btn>
+      </div>
+
+      <div class="toggle-code" @click="handleShowCode">
+        <i class="iconfont icon-code" />
+        {{ !showCodeFlag ? '查看' : '收起'}}代码
+      </div>
+
+      <div class="runnable-code" ref="code" v-show="showCodeFlag">
         <slot></slot>
       </div>
+
+
+
       <div class="runnable-result" v-if="type === 'log'">
         <p v-for="(log, i) in logs">{{i + 1}}. {{ log }}</p>
       </div>
@@ -21,6 +36,7 @@
 <script setup lang="ts">
 import { ref, withDefaults, onMounted } from 'vue'
 import FabricContainer from './FabricContainer.vue'
+import { fabric } from 'fabric'
 
 const props = withDefaults(defineProps<{
   title?: string
@@ -36,6 +52,13 @@ const code = ref<HTMLDivElement>()
 
 const logs = ref<any[]>([])
 
+
+export type BtnItem = {
+  label: string
+  onClick: () => void
+}
+const opsList = ref<BtnItem[]>([])
+
 const canvas = ref()
 const fb = ref()
 
@@ -44,7 +67,9 @@ function run() {
   const codeDiv = code.value.querySelector('pre.shiki') as HTMLDivElement
   const fnStr = codeDiv.innerText
   if (!fnStr) return
-  const fn = new Function('fabric', 'logs', 'canvas', `
+  const fn = new Function('params',
+  `
+  const {fabric, logs, canvas, addBtn} = params
   const console = {
     log(...args) {
       logs.push(...args)
@@ -55,11 +80,29 @@ function run() {
   `)
   try {
     logs.value = []
-    canvas.value.clear()
-    fn(fb.value, logs.value, canvas.value)
+    if (props.type === 'view') {
+      canvas.value.clear()
+      opsList.value.length = 0
+      fn({
+        fabric: fb.value,
+        logs: logs.value,
+        canvas: canvas.value,
+        addBtn
+      })
+    } else {
+      fn({
+        fabric,
+        logs: logs.value,
+        addBtn
+      })
+    }
   } catch(e) {
     console.error(e)
   }
+}
+
+function addBtn(item: BtnItem) {
+  opsList.value.push(item)
 }
 
 function fbMounted(f, c) {
@@ -76,6 +119,13 @@ onMounted(() => {
     }
   }
 })
+
+
+const showCodeFlag = ref(false)
+
+function handleShowCode() {
+  showCodeFlag.value = !showCodeFlag.value
+}
 
 </script>
 
@@ -103,6 +153,7 @@ onMounted(() => {
     user-select: none;
     .play-btn {
       margin-left: auto;
+      padding: 4px;
     }
     .title-content {
       margin-left: 5px;
@@ -121,4 +172,16 @@ onMounted(() => {
   }
 }
 
+.toggle-code {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-custom-block-details-text);
+  &:hover {
+    background: var(--vp-c-bg-mute);
+  }
+}
 </style>

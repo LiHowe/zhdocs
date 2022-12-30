@@ -4,7 +4,7 @@
       <span>
         {{ title }}
       </span>
-      <Btn class="title-btn" @click="reload">
+      <Btn class="title-btn" title="重新运行" @click="reload">
         <i class="iconfont icon-refresh"></i>
       </Btn>
     </div>

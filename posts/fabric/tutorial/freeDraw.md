@@ -40,7 +40,7 @@ fabric 为我们内置了4种类型的笔刷
 
 比如我们使用这张图片作为画笔的内容
 
-<Image src="./pics/mashroom.webp" title="画笔内容" zoom="0.8" width="200"/>
+<Image src="https://s2.loli.net/2022/12/29/EkIqLZorWHKY4TA.webp" title="画笔内容" zoom="0.8" width="200"/>
 
 <Runnable type="view">
 
@@ -54,7 +54,7 @@ canvas.freeDrawingBrush = new fabric.PatternBrush(canvas)
 canvas.freeDrawingBrush.width = 15
 
 const img = new Image()
-img.src = './pics/mashroom.webp'
+img.src = 'https://s2.loli.net/2022/12/29/EkIqLZorWHKY4TA.webp'
 
 canvas.freeDrawingBrush.source = img
 
@@ -85,7 +85,7 @@ canvas.freeDrawingBrush = new fabric.PatternBrush(canvas)
 
 // 2. 加载图片
 const img = new Image()
-img.src = './pics/mashroom.webp'
+img.src = 'https://s2.loli.net/2022/12/29/EkIqLZorWHKY4TA.webp'
 
 // 设定整体画笔内容大小
 const designSize = 40
