@@ -162,7 +162,7 @@ function handleClick(item: FilterDemoItem) {
   canvas.width = width
   canvas.height = height - 32
 
-  const fb = new fabric.Canvas(canvas)
+  const fb = new fabric.StaticCanvas(canvas)
 
   const { grammar: filter } = item
 

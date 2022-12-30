@@ -180,6 +180,7 @@ function handleShowCode() {
   cursor: pointer;
   background: var(--vp-c-bg-soft);
   color: var(--vp-custom-block-details-text);
+  border-radius: 0 0 8px 8px;
   &:hover {
     background: var(--vp-c-bg-mute);
   }
