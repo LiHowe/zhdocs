@@ -1,5 +1,5 @@
 ---
-title: 图片 - Image
+title: 文本 - Text
 ---
 
 # {{ $frontmatter.title }}

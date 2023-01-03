@@ -3,38 +3,73 @@
     <div class="runnable-header">
       <span>
         <Icon name="terminal" />
-        <span class="title-content">{{ title ?? 'Try it' }}</span>
+        <span class="title-content">{{ title }}</span>
       </span>
-      <Btn class="play-btn" @click="run" title="run" icon="play"></Btn>
+      <Btn class="play-btn" @click="run" title="点击运行" icon="play"></Btn>
     </div>
     <div>
-      <div class="runnable-code" ref="code">
+      <fabric-container v-if="type === 'view'" :mounted="fbMounted"/>
+
+      <div class="ops-container">
+        <Btn v-for="b in opsList" :key="b.label" @click="b.onClick">
+          {{ b.label }}
+        </Btn>
+      </div>
+
+      <div class="toggle-code" @click="handleShowCode">
+        <i class="iconfont icon-code" />
+        {{ !showCodeFlag ? '查看' : '收起'}}代码
+      </div>
+
+      <div class="runnable-code" ref="code" v-show="showCodeFlag">
         <slot></slot>
       </div>
-      <div class="runnable-result">
+
+
+
+      <div class="runnable-result" v-if="type === 'log'">
         <p v-for="(log, i) in logs">{{i + 1}}. {{ log }}</p>
       </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-import { fabric } from 'fabric';
+import { ref, withDefaults, onMounted } from 'vue'
+import FabricContainer from './FabricContainer.vue'
+import { fabric } from 'fabric'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   title?: string
-}>()
+  type?: 'log' | 'view'
+  auto?: boolean // 是否自动运行
+}>(), {
+  type: 'log',
+  title: 'Try it',
+  auto: false,
+})
 
 const code = ref<HTMLDivElement>()
 
 const logs = ref<any[]>([])
+
+
+export type BtnItem = {
+  label: string
+  onClick: () => void
+}
+const opsList = ref<BtnItem[]>([])
+
+const canvas = ref()
+const fb = ref()
 
 function run() {
   if (!code.value) return
   const codeDiv = code.value.querySelector('pre.shiki') as HTMLDivElement
   const fnStr = codeDiv.innerText
   if (!fnStr) return
-  const fn = new Function('fabric', 'logs', `
+  const fn = new Function('params',
+  `
+  const {fabric, logs, canvas, addBtn} = params
   const console = {
     log(...args) {
       logs.push(...args)
@@ -45,11 +80,53 @@ function run() {
   `)
   try {
     logs.value = []
-    fn(fabric, logs.value)
+    if (props.type === 'view') {
+      canvas.value.clear()
+      opsList.value.length = 0
+      fn({
+        fabric: fb.value,
+        logs: logs.value,
+        canvas: canvas.value,
+        addBtn
+      })
+    } else {
+      fn({
+        fabric,
+        logs: logs.value,
+        addBtn
+      })
+    }
   } catch(e) {
     console.error(e)
   }
 }
+
+function addBtn(item: BtnItem) {
+  opsList.value.push(item)
+}
+
+function fbMounted(f, c) {
+  canvas.value = c
+  fb.value = f
+}
+
+onMounted(() => {
+  if (props.auto) {
+    try {
+      run()
+    } catch (e) {
+      console.log(e)
+    }
+  }
+})
+
+
+const showCodeFlag = ref(false)
+
+function handleShowCode() {
+  showCodeFlag.value = !showCodeFlag.value
+}
+
 </script>
 
 <style scoped lang="scss">
@@ -76,6 +153,7 @@ function run() {
     user-select: none;
     .play-btn {
       margin-left: auto;
+      padding: 4px;
     }
     .title-content {
       margin-left: 5px;
@@ -94,4 +172,17 @@ function run() {
   }
 }
 
+.toggle-code {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-custom-block-details-text);
+  border-radius: 0 0 8px 8px;
+  &:hover {
+    background: var(--vp-c-bg-mute);
+  }
+}
 </style>

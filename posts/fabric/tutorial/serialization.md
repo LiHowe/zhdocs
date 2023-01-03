@@ -2,7 +2,7 @@
 title: 序列化
 ---
 
-# {{ $frontmatter.title }} <Badge type="warning" text="WIP"/>
+# {{ $frontmatter.title }} 
 
 <script setup>
 import Runnable from '../components/Runnable.vue'
@@ -16,7 +16,7 @@ fabric 的核心序列化方法为 `toObject()` 和 `toJSON()` 两种方法
 
 将 fabric 对象转换为普通对象
 
-+ `propertiesToInclude`: 可选参数, 字符串数组. 用来标识哪些**自定义**属性会被导出.
++ `propertiesToInclude`: 用来标识哪些**自定义**属性会被导出.
 
 比如, 我们正常创建一个矩形 `r` , 然后分别调用以下方法来查看它们之间的区别.
 

@@ -1,7 +1,7 @@
 <template>
   <div ref="c">
     <canvas ref="canvas" width="500" height="300"></canvas>
-    <div class="ops-container">
+    <div class="ops-container" v-if="$slots.ops">
       <slot name="ops"></slot>
     </div>
   </div>
@@ -24,7 +24,8 @@ const c = ref<HTMLDivElement>()
 onMounted(() => {
   fb.value = new fabric.Canvas(canvas.value!, {
     containerClass: 'fb-container',
-    width: c.value?.clientWidth
+    width: c.value?.clientWidth,
+    selection: true,
   })
   props.mounted && props.mounted(fabric, fb.value)
 })

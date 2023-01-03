@@ -4,8 +4,6 @@
       <template #ops>
         <Btn @click="createSector">绘制扇形</Btn>
         <Btn @click="createCircle">绘制圆形</Btn>
-        <Btn @click="createCircle">绘制按钮</Btn>
-        <Btn @click="createSpiral">绘制螺旋</Btn>
         <Btn @click="createButton">绘制按钮</Btn>
       </template>
     </FabricContainer>

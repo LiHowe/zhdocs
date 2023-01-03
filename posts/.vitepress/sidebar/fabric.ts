@@ -1,7 +1,8 @@
 const perfix = '/fabric'
 const t = (path: string) => `${perfix}/tutorial/${path}`
 const s = (path: string) => `${perfix}/source/${path}`
-
+// demo path
+const d = (path: string) => `${perfix}/demos/${path}/index.md`
 
 export const fabricSidebar = [
   {
@@ -25,8 +26,8 @@ export const fabricSidebar = [
         link: t('path')
       },
       {
-        text: '样式调整',
-        link: t('customization')
+        text: '绘制文字',
+        link: t('text')
       },
       {
         text: '绘制图片',
@@ -37,12 +38,12 @@ export const fabricSidebar = [
         link: t('imageFilter')
       },
       {
-        text: '绘制文字',
-        link: t('text')
+        text: '组合',
+        link: t('group')
       },
       {
-        text: '组合元素',
-        link: t('group')
+        text: '画笔',
+        link: t('freeDraw')
       },
       {
         text: '交互',
@@ -57,16 +58,20 @@ export const fabricSidebar = [
         link: t('animation')
       },
       {
-        text: '自定义图形类',
+        text: '自定义样式',
+        link: t('customization')
+      },
+      {
+        text: '自定义图形',
         link: t('createClass')
+      },
+      {
+        text: '自定义控制点',
+        link: t('customControl')
       },
       {
         text: '序列化',
         link: t('serialization')
-      },
-      {
-        text: '杂项',
-        link: t('others')
       },
     ]
   },
@@ -120,6 +125,10 @@ export const fabricSidebar = [
         ]
       },
       {
+        text: '笔刷',
+        link: s('brush')
+      },
+      {
         text: '图片',
         link: s('image')
       },
@@ -143,6 +152,19 @@ export const fabricSidebar = [
         text: '动画',
         link: s('animation')
       },
+    ]
+  },
+  {
+    text: 'Demos',
+    items: [
+      {
+        text: 'MiniMap',
+        link: d('minimap'),
+      },
+      {
+        text: '范围限制',
+        link: d('limits'),
+      }
     ]
   },
   {
