@@ -42,17 +42,49 @@ function mounted(fb, canvas) {
           originY: 'top'
         })
         canvas.add(r1, r2)
+        const c1 = r1.animate('angle', -180, {
+          duration: 2000,
+          onChange: canvas.renderAll.bind(canvas),
+          abort: function(angle, vp, tp) {
+            console.log('abort', { angle })
+            if (Math.round(angle) === -90) {
+              this.dispose()
+              return true
+            }
+          },
+          onComplete: (...args) => {
+            console.log('onComplete', args)
+          }
+        })
+
+        console.log('r1.animation', c1)
+
         const cancel = fb.util.animate({
           endValue: 180,
           duration: 2000,
           onChange: (angle: number) => {
-            r1.set('angle', -angle)
             r2.set('angle', angle)
             canvas.requestRenderAll()
           }
         })
+
+        console.log(fabric.runningAnimations)
+        // setTimeout(() => {
+        //   // r1.dispose()
+        //   c1()
+        //   r2.dispose()
+        // }, 500);
+
+      }
+    },
+    {
+      title: '取消全部动画',
+      click: () => {
+        fabric.runningAnimations.cancelAll()
+        c.value.requestRenderAll()
       }
     }
+
   ]
 }
 

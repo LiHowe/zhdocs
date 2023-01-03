@@ -3,6 +3,11 @@ title: 动画 - animation
 wip: true
 ---
 
+<script setup>
+import AnimationPlayground from './demos/Animation.vue'
+import Easing from './demos/Easing.vue'
+</script>
+
 # {{ $frontmatter.title }} <Badge v-if="$frontmatter.wip" type="warning" text="WIP" />
 
 fabric 设置元素动画的方式有两种:
@@ -79,6 +84,7 @@ canvas.add(r1, r2)
 fabric.util.animate({
   startValue: 0,
   endValue: 180,
+  duration: 2000,
   onChange: (angle: number) => {
     r1.set('rotate', angle)
     r2.set('rotate', -angle)
@@ -88,11 +94,48 @@ fabric.util.animate({
 
 ```
 
-<script setup>
-import AnimationPlayground from './demos/Animation.vue'
-</script>
-
 ## 取消动画
+
+`object.animate` 与 `fabric.util.animate` 均会返回一个 `cancel` 方法来供我们取消动画, 所以我们可以调用
+其返回方法来取消动画.
+
+```ts
+const cancelRect1Animate = rect1.animate('width', '+=10', {
+  onChange: canvas.requestRenderAll.bind(canvas),
+  duration: 2000
+})
+
+const cancelRect2Animate = fabric.util.animate({
+  startValue: 0,
+  endValue: 180,
+  duration: 2000,
+  onChange: (angle: number) => {
+    rect2.set('rotate', -angle)
+    canvas.requestRenderAll()
+  }
+})
+
+// 取消动画
+setTimeout(() => {
+  cancelRect1Animate() // [!code hl]
+  cancelRect2Animate() // [!code hl]
+}, 1000)
+
+```
+
+使用 `object.animate` 方法执行的动画还可以使用 `object.dispose()` 方法来取消对象的**全部**动画.
+
+## fabric.runningAnimations
+
+`runningAnimations` 包含了当前正在执行的动画, 还提供了以下几种方法供我们查找及取消动画
+
++ `cancelAll()`: 取消全部动画
++ `cancelByCanvas(canvas)`: 取消指定画布动画
++ `cancelByTarget(target)`: 取消指定对象动画
+  
++ `findAnimation(cancelFn)`: 根据指定动画的 cancel 方法查找动画
++ `findAnimationIndex(cancelFn)`: 根据指定动画的 cancel 方法查找动画下标
++ `findAnimationsByTarget(target)`: 根据指定对象查找动画
 
 ## 暂停/恢复动画
 
@@ -101,6 +144,10 @@ import AnimationPlayground from './demos/Animation.vue'
 ## Playground
 
 <AnimationPlayground />
+
+## 缓动动画 - Easing
+
+<Easing />
 
 ## 参考链接
 

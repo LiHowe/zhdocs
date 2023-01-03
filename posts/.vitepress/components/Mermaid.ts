@@ -23,7 +23,7 @@ export default defineComponent({
     let baseConfig = {
       startOnLoad: false,
       securityLevel: 'loose',
-      theme: 'forest',
+      // theme: 'forest',
     }
     let configObj = {}
     try {

@@ -52,7 +52,7 @@ $size: 13px;
   }
   &.checked {
     color: var(--vp-c-bg-mute);
-    background-color: var(--vp-c-green-dark)
+    background-color: var(--vp-c-brand)
   }
 }
 .dark .h-checkbox.checked {
@@ -64,7 +64,7 @@ $size: 13px;
 
 }
 .cbx-input {
-  accent-color: var(--vp-c-green-dark);
+  accent-color: var(--vp-c-brand);
   width: $size;
   height: $size;
 }
