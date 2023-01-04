@@ -8,7 +8,7 @@
   </Demo>
 </template>
 <script setup lang="ts">
-import FabricContainer from '../../components/FabricContainer.vue';
+import FabricContainer from '../../../components/FabricContainer.vue';
 import { ref } from 'vue'
 
 const c = ref()
