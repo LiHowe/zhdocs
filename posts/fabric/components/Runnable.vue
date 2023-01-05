@@ -8,7 +8,7 @@
       <Btn class="play-btn" @click="run" title="点击运行" icon="play"></Btn>
     </div>
     <div>
-      <fabric-container v-if="type === 'view'" :mounted="fbMounted"/>
+      <fabric-container v-if="type === 'view'" :static="static" :mounted="fbMounted"/>
 
       <div class="ops-container">
         <Btn v-for="b in opsList" :key="b.label" @click="b.onClick">
@@ -42,10 +42,14 @@ const props = withDefaults(defineProps<{
   title?: string
   type?: 'log' | 'view'
   auto?: boolean // 是否自动运行
+  showCode?: boolean
+  static?: boolean // 是否使用 StaticCanvas
 }>(), {
   type: 'log',
   title: 'Try it',
   auto: false,
+  showCode: false,
+  static: false,
 })
 
 const code = ref<HTMLDivElement>()
@@ -53,7 +57,7 @@ const code = ref<HTMLDivElement>()
 const logs = ref<any[]>([])
 
 
-export type BtnItem = {
+type BtnItem = {
   label: string
   onClick: () => void
 }
@@ -121,7 +125,7 @@ onMounted(() => {
 })
 
 
-const showCodeFlag = ref(false)
+const showCodeFlag = ref(props.showCode)
 
 function handleShowCode() {
   showCodeFlag.value = !showCodeFlag.value

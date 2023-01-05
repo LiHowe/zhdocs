@@ -17,3 +17,12 @@
 ::-webkit-scrollbar-button{
   height: 10px;
 }
+
+.fb-container {
+  border: 1px solid var(--vp-c-divider-light);
+}
+
+:root {
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+}

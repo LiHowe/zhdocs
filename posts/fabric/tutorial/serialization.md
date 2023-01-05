@@ -40,14 +40,18 @@ r._tag = 'hzzzh' // [!code hl]
 console.log(r.toObject())
 console.log(r.toJSON())
 console.log(JSON.stringify(r))
-console.log(r.toObject(['hzzzh']))
+console.log(r.toObject(['_tag'])) // [!code hl]
+console.log(r.toObject(Object.keys(r))) // [!code hl]
 ```
 
 </Runnable>
 
+我们业务中难免会有一些字段需要挂在fabric Object 上， 但是我们根据上面的输出结果看到
+并未包含我们自定义的属性 `_tag`, 这时候就需要用到 `toString()` 方法来输出我们特定的属性。
+
 ## toJSON()
 
-源码:
+等同于 `toObject()`, 无参数设置, 下面我们来看一下该方法的源码：
 
 ```ts
 toJSON() {
@@ -55,8 +59,6 @@ toJSON() {
   return this.toObject();
 }
 ```
-
-等同于调用不传参的 `toObject()`
 
 ## 图片输出
 

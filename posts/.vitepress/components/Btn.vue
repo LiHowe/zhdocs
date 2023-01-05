@@ -47,10 +47,10 @@ const isEmpty = computed(() => !slots.default)
   justify-content: center;
   align-items: center;
   &:hover {
-    color: var(--vp-c-green);
+    color: var(--vp-c-brand);
   }
   &.primary {
-    background-color: var(--vp-c-green-dark);
+    background-color: var(--vp-c-brand);
   }
   &.warning {
     background-color: var(--vp-c-yellow-dark);
