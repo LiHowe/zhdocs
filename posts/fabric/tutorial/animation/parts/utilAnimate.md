@@ -5,7 +5,9 @@
 + `startValue`: 起始值
 + `endValue`: 结束值
 
-```ts
+::: code-group
+
+```ts [a.ts]
 fabric.util.animate({
   startValue: 0,
   endValue: 100,
@@ -17,6 +19,22 @@ fabric.util.animate({
 })
 
 ```
+
+```ts [b.ts]
+fabric.util.animate({
+  startValue: [1, 2, 3],
+  endValue: [5, 6, 7],
+  duration: 2000,
+  onChange: ([x, y, angle]) => {
+    rect.set({
+      x, y, angle
+    })
+    canvas.requestRenderAll()
+  }
+})
+```
+
+:::
 
 我们可以在 onChange 方法中同时修改多个对象的属性来使它们同时执行动画.
 

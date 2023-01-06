@@ -51,6 +51,8 @@ rect.animate('width', '+=200', {
 })
 ```
 
+**相对值写法不支持 `*` 与 `/`**, 原因请见[源码分析/动画](/fabric/source/animation)
+
 :::
 
 那么 `options` 都支持哪些配置呢?
