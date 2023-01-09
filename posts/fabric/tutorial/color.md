@@ -18,8 +18,15 @@ fabric 中颜色分为基础颜色(Color)与渐变颜色(Gradient), Color类主�
 + HEX(十六进制): RGB的十六进制表示
 + a: alpha, 颜色的透明度
 
+## 使用
+
+实例化 Fabric 颜色: `new fabric.Color('black')`
+
+fabric 颜色的数据源为 RGBa 数值数组, 比如 `[0,0,0,1]`
+
 <!--@include: ./color/api.md --> 
 
 ## 相关链接
 
 + [Fabric Docs | Color](http://fabricjs.com/docs/fabric.Color.html)
++ [源码分析 | 颜色](/fabric/source/color)
