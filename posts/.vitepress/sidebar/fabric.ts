@@ -42,6 +42,10 @@ export const fabricSidebar = [
         link: t('color')
       },
       {
+        text: '渐变色',
+        link: t('gradient')
+      },
+      {
         text: '组合',
         link: t('group')
       },
@@ -143,6 +147,10 @@ export const fabricSidebar = [
       {
         text: '颜色',
         link: s('color')
+      },
+      {
+        text: '渐变色',
+        link: s('gradient')
       },
       {
         text: '组合',
