@@ -1,5 +1,5 @@
 const perfix = '/fabric'
-const t = (path: string) => `${perfix}/tutorial/${path}`
+const t = (path: string) => `${perfix}/tutorial/${path}.md`
 const s = (path: string) => `${perfix}/source/${path}`
 // demo path
 const d = (path: string) => `${perfix}/demos/${path}/index.md`
@@ -36,6 +36,14 @@ export const fabricSidebar = [
       {
         text: '图片滤镜',
         link: t('imageFilter')
+      },
+      {
+        text: '颜色',
+        link: t('color')
+      },
+      {
+        text: '渐变色',
+        link: t('gradient')
       },
       {
         text: '组合',
@@ -80,7 +88,7 @@ export const fabricSidebar = [
     collapsible: true,
     items: [
       {
-        text: '目录结构',
+        text: '介绍',
         link: s('structure')
       },
       {
@@ -135,6 +143,14 @@ export const fabricSidebar = [
       {
         text: '文字',
         link: s('text')
+      },
+      {
+        text: '颜色',
+        link: s('color')
+      },
+      {
+        text: '渐变色',
+        link: s('gradient')
       },
       {
         text: '组合',

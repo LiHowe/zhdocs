@@ -2,5 +2,5 @@
 title: 笔刷 - Brush
 ---
 
-# {{ $frontmatter.title }}
+# {{ $frontmatter.title }} <Badge type="warning" text="wip"/>
 

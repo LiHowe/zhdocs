@@ -16,7 +16,7 @@
         </Btn>
       </div>
 
-      <div class="toggle-code" @click="handleShowCode">
+      <div v-if="type==='view'" class="toggle-code" @click="handleShowCode">
         <i class="iconfont icon-code" />
         {{ !showCodeFlag ? '查看' : '收起'}}代码
       </div>
@@ -25,10 +25,8 @@
         <slot></slot>
       </div>
 
-
-
-      <div class="runnable-result" v-if="type === 'log'">
-        <p v-for="(log, i) in logs">{{i + 1}}. {{ log }}</p>
+      <div class="runnable-result" v-if="type === 'log' && logs.length > 0">
+        <p v-for="(log, i) in logs">{{ log }}</p>
       </div>
     </div>
   </div>
@@ -125,7 +123,7 @@ onMounted(() => {
 })
 
 
-const showCodeFlag = ref(props.showCode)
+const showCodeFlag = ref(props.showCode || props.type === 'log')
 
 function handleShowCode() {
   showCodeFlag.value = !showCodeFlag.value
@@ -168,11 +166,38 @@ function handleShowCode() {
       margin: 0;
       border-radius: 0 0 8px 8px;
     }
+    &:has(+.runnable-result) {
+      :deep(div[class*="language-"]) {
+        border-radius: 0;
+      }
+    }
   }
   &-result {
     font-size: 12px;
     max-height: 300px;
     overflow: hidden auto;
+    & > p {
+      margin: 0;
+      padding: 5px 15px 5px 50px;
+      line-height: 1.3;
+      counter-increment: log;
+      white-space: break-spaces;
+      position: relative;
+      transition: background-color linear .2s;
+      &:hover {
+        background-color: var(--vp-c-divider-light);
+      }
+      &::before {
+        content: counter(log);
+        position: absolute;
+        left: 0;
+        display: inline-block;
+        width: 32px;
+        text-align: center;
+        height: 100%;
+        border-right: 1px solid var(--vp-c-divider-light);
+      }
+    }
   }
 }
 

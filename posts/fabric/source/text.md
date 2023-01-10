@@ -2,4 +2,4 @@
 title: 文本 - Text
 ---
 
-# {{ $frontmatter.title }}
+# {{ $frontmatter.title }} <Badge type="warning" text="wip"/>

@@ -34,5 +34,7 @@ onMounted(() => {
 <style scoped>
 .ops-container {
   margin-top: 10px;
+  font-size: 12px;
+  padding: 10px
 }
 </style>

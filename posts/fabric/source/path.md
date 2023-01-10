@@ -2,7 +2,7 @@
 title: 路径 - Path
 ---
 
-# {{ $frontmatter.title }}
+# {{ $frontmatter.title }} <Badge type="warning" text="wip"/>
 
 Path 对象也继承于 FabricObject
 
