@@ -17,6 +17,14 @@
             v-model="gradient.coords[key]" />
           </div>
         </div>
+
+        <div>
+          <span>offsetX:</span>
+          <el-input-number v-model="gradient.offsetX"/>
+          <span>offsetY:</span>
+          <el-input-number v-model="gradient.offsetY"/>
+        </div>
+
         <div class="stops">
           <p>色块配置</p>
           <div v-for="stop in gradient.colorStops">
@@ -27,6 +35,7 @@
           </div>
           <el-button type="primary" @click="addStop">添加色块</el-button>
         </div>
+
       </template>
     </FabricContainer>
   </Demo>
