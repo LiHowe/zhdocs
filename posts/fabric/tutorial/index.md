@@ -35,9 +35,6 @@ f --> Shadow:阴影
 
 obj --> Shape(Shape:图形)
 
-style Shape fill:#42b883,stroke:#42b883,color:#fff
-click Shape "/tutorial/shape.html" "a link"
-
 Shape --> Circle:圆形
 Shape --> Line:线段
 Shape --> Triangle:三角形

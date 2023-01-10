@@ -9,7 +9,7 @@ import ColorNameMap from './color/samples/colorNameMap.vue'
 
 # {{ $frontmatter.title }}
 
-fabric 中颜色分为基础颜色(Color)与渐变颜色(Gradient), Color类主要用于操作颜色的透明度及颜色的输出形式(`rgb(a)`, `hsl(a)`, `hex`), Gradient类则用于创建渐变色
+Fabric 中颜色分为基础颜色(Color)与渐变颜色(Gradient), Color类主要用于操作颜色的透明度及颜色的输出形式(`rgb(a)`, `hsl(a)`, `hex`), Gradient类则用于创建渐变色
 
 ## 颜色基础
 

@@ -23,7 +23,7 @@ import Runnable from '../components/Runnable.vue'
 
 ### 获取画布当前选中元素
 
-fabric 提供了两个方法来获取画布的选中元素：
+Fabric 提供了两个方法来获取画布的选中元素：
 
 + `getActiveObject()`: 返回canvas 的 _activeObject 对象
 + `getActiveObjects()`: 返回包含当前选中元素的数组

@@ -1,8 +1,19 @@
 ---
-title: 目录结构
+title: 介绍
 ---
 
+# {{ $frontmatter.title }}
+
+几乎所有的canvas绘图库都是基于原始canvas绘制方法进行一系列的封装, 本质上还是调用HTML Canvas API.
+所以, 在阅读源码之前, 最好还是对Canvas原始的API有一些了解会好一些(同时也可以了解一些SVG的相关知识)
+
+可以前往 [MDN-Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) 进行初步的Canvas基础学习(大佬请无视)
+
 ## Src 目录结构
+
+::: tip 说明
+该目录结构仅为笔者写作时的结构, 框架会不断更新, 所以文件结构也可能会随时发生变化.
+:::
 
 ```text
 src

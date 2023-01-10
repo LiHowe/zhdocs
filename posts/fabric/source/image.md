@@ -2,4 +2,4 @@
 title: 图片 - Image
 ---
 
-# {{ $frontmatter.title }}
+# {{ $frontmatter.title }} <Badge type="warning" text="wip"/>

@@ -21,7 +21,7 @@ FabricObject为 fabric 所有2d图形对象的父类, 部分图形继承链如�
 </Demo>
 </ClientOnly>
 
-## 对象属性一览
+## 对象属性
 
 ### 基础属性
 <!--@include: ./parts/objectBasicAttrs.md-->
@@ -47,7 +47,7 @@ FabricObject为 fabric 所有2d图形对象的父类, 部分图形继承链如�
 ### 其他属性
 <!--@include: ./parts/others.md--> 
 
-## aCoords
+### aCoords
 
 用来标识对象角位置(比如矩形的四个顶点拐角), 该属性值为一个对象
 
@@ -65,12 +65,14 @@ export type TCornerPoint = {
 每个点(Point)对象的 `x`, `y` 取决于以下属性: `width`, `height`, `scaleX`, `scaleY`,
 `skewX`, `skewY`, `angel`, `strokeWidth`, `top`, `left`
 
-## lineCoords
+### lineCoords
 
 用于对象检测, 描述对象角的位置,包括内边距(padding).
 该属性值在`setCoords`时候被赋值与刷新
 
-::: details 与 aCoords 的区别?
+::: details 与 aCoords 的区别? <Badge type="warning" text="wip"/>
 TODO
 
 :::
+
+## API <Badge type="warning" text="wip"/>
