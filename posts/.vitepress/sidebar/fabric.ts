@@ -88,7 +88,7 @@ export const fabricSidebar = [
     collapsible: true,
     items: [
       {
-        text: '目录结构',
+        text: '介绍',
         link: s('structure')
       },
       {
