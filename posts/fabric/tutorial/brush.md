@@ -14,20 +14,21 @@ const c = new fabric.Canvas('c', {
 
 <script setup>
 import Runnable from '../components/Runnable.vue'
+import Gallary from './brush/samples/gallary.vue'
 </script>
 
+通过设置 `canvas.freeDrawingBrush` 来更换不同模式的笔刷.
 
-## 笔刷类型
+Fabric 为我们内置了4种类型的笔刷
 
-通过设置 `canvas.freeDrawingBrush` 来更换绘制模式的笔刷.
-
-fabric 为我们内置了4种类型的笔刷
 + 铅笔笔刷 - pencilBrush, 默认笔刷
 + 圆形笔刷 - circleBrush
 + 喷雾笔刷 - sprayBrush
 + 图案笔刷 - patternBrush
 
-### 图案笔刷 - patternBrush
+<Gallary />
+
+## 图案笔刷 - patternBrush
 
 使用 `new fabric.PatternBrush(canvas)` 语法来实例化笔刷
 
@@ -36,7 +37,7 @@ fabric 为我们内置了4种类型的笔刷
 我们可以覆盖笔刷的 `getPatternSrc` 方法来创建自定义图案笔刷， 也可以将图片作为 pattern 笔刷的图案
 
 
-#### 图片作为画笔图案
+### 图片作为画笔图案
 
 比如我们使用这张图片作为画笔的内容
 
@@ -107,7 +108,7 @@ canvas.freeDrawingBrush.width = designSize
 
 </Runnable>
 
-#### 自定义内容图案
+### 自定义内容图案
 
 我们也可以使用自定义绘制图形来作为笔刷内容
 
