@@ -38,7 +38,7 @@ fabric 设置元素动画的方式有两种:
 <!--@include: ./animation/parts/pathAnime.md-->
 
 <!--@include: ./animation/parts/easeAnime.md-->
-
+ 
 ## 参考链接
 
 + [官网](http://fabricjs.com/fabric-intro-part-2)

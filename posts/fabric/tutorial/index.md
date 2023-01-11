@@ -1,10 +1,9 @@
 # 介绍
 
-本文档基于 `fabric 5.x` 版本进行编写. 在写该文档的这段时间 fabric 开发者们也在积极地
-将老旧代码更新到TypeScript写法(这个时间点有点尴尬,我一边写,它一边改), 不过整体的思路还是
-不变的, 阅读本文档可以着重于思路而非具体代码实现.
+本文档基于 `fabric 5.3` 版本进行编写. 在编写期间 Fabric 的开发者们也在积极地
+将老旧代码更新到TypeScript写法, 着手开发一些新功能以发布6.x版本.
 
-由于本人才疏学浅, 文档中可能会有一些描述不准确的地方, 👏 **欢迎大家提 [Issue](https://github.com/LiHowe/canvas/issues) 或 [PR](https://github.com/LiHowe/canvas/pulls)**, 
+由于本人才疏学浅, 并未使用 fabricJS做过太多的项目, 所以文档中可能会有一些描述不准确的地方, 👏 **欢迎大家提 [Issue](https://github.com/LiHowe/canvas/issues) 或 [PR](https://github.com/LiHowe/canvas/pulls)**, 
 同时, 如果觉得本文档对你有帮助的话请不要吝啬 [⭐️Star](https://github.com/LiHowe/canvas), 谢谢.
 
 目前 Canvas 原生提供越来越多便利的 API 供我们更方便的绘制图形, fabric 6.x 也会逐步

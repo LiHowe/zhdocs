@@ -9,6 +9,12 @@ title: 介绍
 
 可以前往 [MDN-Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) 进行初步的Canvas基础学习(大佬请无视)
 
+因为部分功能源码较长, 所以后续文章将会对过长的源码进行一定程度的精简, 并分段说明.
+
+:::tip 提示
+源码中注释有很多, 大部分的属性及方法都有作者所写的解释,甚至会附上使用说明, 所以英语好的也可以直接看源码.
+:::
+
 ## Src 目录结构
 
 ::: tip 说明
