@@ -4,9 +4,9 @@
       <span>
         {{ title }}
       </span>
-      <Btn class="title-btn" title="重新运行" @click="reload">
+      <el-button type="text" class="title-btn" title="重新运行" @click="reload">
         <i class="iconfont icon-refresh"></i>
-      </Btn>
+      </el-button>
     </div>
     <div class="content" v-if="f">
       <slot></slot>

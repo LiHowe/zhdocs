@@ -5,15 +5,17 @@
         <Icon name="terminal" />
         <span class="title-content">{{ title }}</span>
       </span>
-      <Btn class="play-btn" @click="run" title="点击运行" icon="play"></Btn>
+      <el-button type="text" class="play-btn" @click="run" title="点击运行" >
+        <Icon name="play"/>
+      </el-button>
     </div>
     <div>
       <fabric-container v-if="type === 'view'" :static="static" :mounted="fbMounted"/>
 
       <div class="ops-container">
-        <Btn v-for="b in opsList" :key="b.label" @click="b.onClick">
+        <el-button type="primary" v-for="b in opsList" :key="b.label" @click="b.onClick">
           {{ b.label }}
-        </Btn>
+        </el-button>
       </div>
 
       <div v-if="type==='view'" class="toggle-code" @click="handleShowCode">
@@ -71,14 +73,14 @@ function run() {
   if (!fnStr) return
   const fn = new Function('params',
   `
-  const {fabric, logs, canvas, addBtn} = params
-  const console = {
-    log(...args) {
-      logs.push(...args)
-      window.console.log('[Runnable]:', ...args)
-    }
+const { fabric, logs, canvas, addBtn } = params
+const console = {
+  log(...args) {
+    logs.push(...args)
+    window.console.log('[Runnable]:', ...args)
   }
-  ${fnStr}
+}
+${fnStr}
   `)
   try {
     logs.value = []

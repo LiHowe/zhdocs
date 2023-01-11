@@ -1,0 +1,43 @@
+::-webkit-scrollbar{
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+}
+/*滚动条的轨道*/
+::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+/*滚动条的滑块按钮*/
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background-color: #bbb;
+  border: 2px solid var(--vp-c-bg);
+}
+/*滚动条的上下两端的按钮*/
+::-webkit-scrollbar-button{
+  height: 10px;
+}
+
+.fb-container {
+  border: 1px solid var(--vp-c-divider-light);
+}
+
+:root {
+  --vp-c-brand: rgba(100, 108, 255, 1);
+  --vp-c-brand-light: rgba(116, 123, 255, 1);
+  --vp-c-brand-dark: rgba(71, 78, 200, 1);
+
+  --el-color-primary: rgba(100, 108, 255, 1);
+
+  --vp-custom-block-tip-bg: rgba(100, 108, 255, 0.1);
+  --vp-custom-block-tip-border: rgba(100, 108, 255, 0.4);
+  --vp-custom-block-tip-text: rgb(85, 93, 243);
+}
+
+html.dark {
+  --vp-custom-block-tip-bg: rgba(100, 108, 255, 0.1);
+  --vp-custom-block-tip-border: rgba(100, 108, 255, 0.5);
+  --vp-custom-block-tip-text: rgb(125,132,239);
+
+  --el-color-primary: rgba(100, 108, 255, 1);
+}
