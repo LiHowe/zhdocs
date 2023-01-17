@@ -9,9 +9,6 @@ title: 初始化
 + `new fabric.Canvas()` 实际上创建了3个canvas, 分别为
 
   + 顶部画布(`upper-canvas`): 用于处理交互
-    + three
-      + four
-        + five
   + 底层画布(`lower-canvas`): 用于显示元素, 为静态canvas
   + 缓存画布(`cacheCanvas`): 用于缓存画布元素
 
