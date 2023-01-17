@@ -9,11 +9,17 @@ source: src/shapes/group.class.ts
 
 在我们阅读源码之前, 我们可以先想一想自己要如何实现 Group 的功能.
 
-::: details 自己的简单思路
-1. 因为Group涉及到元素的添加、删除、查询, 也就是类似于Array的一系列操作方式, **所以 Group 应该有一个 `objects` 属性用来存放该 Group 所包含的全部元素**, 然后为 Group 添加 `add`, `remove`, `clear`, `find` 等常用操作方法.
-2. 在添加元素之后, **需要建立 Group 坐标与元素坐标之间的联系**, 使得在 Group 的坐标变更时, 其内部的元素均会相对于 Group 的位置进行变化.
-3. Group 的宽高根据内部元素的边界进行计算, 当内部元素位置发生变化时, 需要重新计算 Group 的大小.
-:::
+1. 如何建立Group与元素间的关系?
+2. 添加及移除元素后如何重新计算组合的布局及边界框?
+3. 移动组合后如何同步调整组合内元素坐标?
+4. 元素被组合后, 其坐标应该相对于组合还是原坐标系? 分别如何计算?
+
+## 总结
+
+1. Group 对象有 `_objects` 属性用于存放组合内全部元素.
+2. 组合内元素的 `group` 属性用来关联其对应的组合.
+3. 被选中的元素添加到组合中会被额外放入 `_activeObjects` 数组中进行存储记录.
+4. 元素被添加入或移除组合后, 调用 `_applyLayoutStrategy` 方法重新计算布局
 
 ## 源码结构
 
@@ -103,6 +109,7 @@ export class Group extends createCollectionMixin(FabricObject<GroupEvents>) {
 ```
 
 构造函数主要做了以下事情:
+
 1. 初始化部分属性及方法的定义
 2. 将 `objects` 与组合做关联
 3. 应用初始布局策略
@@ -115,7 +122,7 @@ export class Group extends createCollectionMixin(FabricObject<GroupEvents>) {
 
 1. 如果Group开启了 `subTargetCheck`, 则添加的元素将会重新计算坐标
 2. 添加的元素会更新 `group` 与 `canvas` 属性, 为了建立元素与Group间的联系
-3. 如果Group开启了 `interactive` 则为元素添加 `changed`、`modified`、`selected`、`deselected` 事件监听.
+3. 如果Group开启了组合内元素点选 `interactive`, 则为元素添加 `changed`、`modified`、`selected`、`deselected` 事件监听, 用于更新Group布局.
 4. 如果添加的元素是当前画布被选中的元素或者其子元素, 则将其放入 `_activeObjects` 集合中进行记录.
 
 #### _enterGroup
@@ -155,14 +162,14 @@ _enterGroup(object: FabricObject, removeParentTransform?: boolean) {
 1. 根据布局策略计算当前组合的中心点以及宽高
 2. 触发 `layout` 钩子与事件监听
 
-  ```ts
-  this.onLayout(context, result);
-  this.fire('layout', {
-    context,
-    result,
-    diff,
-  })
-  ```
+    ```ts
+    this.onLayout(context, result);
+    this.fire('layout', {
+      context,
+      result,
+      diff,
+    })
+    ```
 
 3. 如果当前组合为其他组合的子元素, 则递归更新父组合的布局策略
 

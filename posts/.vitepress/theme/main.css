@@ -41,3 +41,8 @@ html.dark {
 
   --el-color-primary: rgba(100, 108, 255, 1);
 }
+
+
+.vp-doc li ul {
+  list-style: circle;
+}
