@@ -4,7 +4,9 @@ title: 自定义样式 - Customization
 
 # {{ $frontmatter.title }}
 
-
+<script setup>
+import Playground from './customization/samples/pg.vue'
+</script>
 
 ## 鼠标框选样式 - Selection
 
@@ -53,7 +55,6 @@ fabric 默认的元素选中样式为
 + `cornorSize`: 控制点的大小
 + `transparentCorners`: 不填充控制点
 + `cornerStyle`: 控制点形状
-+ `rotatingPointOffset`: 旋转点距离
 
 也可使用以下方法来调整不同位置控制点的显示状态.
 
@@ -61,71 +62,9 @@ fabric 默认的元素选中样式为
 
 <Image src="/imgs/controls.svg" title="控制点位置对照" />
 
-<Demo>
+## Playground
 
-<FabricContainer :mounted="mounted2">
-  <template #ops v-if="rect">
-    <Color v-model="rect.borderColor" title="borderColor" />
-    <Color v-model="rect.cornerColor" title="cornerColor" />
-    <Color v-model="rect.cornerStrokeColor" title="cornerStrokeColor" />
-    <Cbx v-model="rect.transparentCorners" label="transparentCorners"/>
-    <Cbx v-model="rect.hasControls" label="hasControls"/>
-    <Cbx v-model="rect.hasBorders" label="hasBorders"/>
-    <div>
-      <Cbx v-for="item in controls" v-model="item.checked" :label="item.label" />
-    </div>
-    <input type="range" :value="rect.rotatingPointOffset">
-  </template>
-</FabricContainer>
-
-</Demo>
-
-<script setup>
-import FabricContainer from '../components/FabricContainer.vue';
-import Runnable from '../components/Runnable.vue'
-import Color from '../../.vitepress/components/Color.vue'
-import { ref, watch, watchEffect } from 'vue'
-
-function mounted1(fb, c) {
-  c.selectionColor = 'rgba(187 222 251/.1)'
-  c.selectionBorderColor = '#2196f3'
-  c.selectionLineWidth = 1
-}
-
-const rect = ref(null);
-
-const controls = ref([
-  'tl',
-  'tr',
-  'bl',
-  'br',
-  'ml',
-  'mr',
-  'mt',
-  'mb',
-  'mtr',
-].map(x => ({
-  label: x,
-  checked: true
-})))
-
-function mounted2(fb, c) {
-  const r = new fabric.Rect({ width: 40, height: 40, fill: '#e9e9e9'})
-  c.add(r)
-  rect.value = r
-  watch(rect, val => {
-    c.requestRenderAll()
-  }, { deep: true })
-
-  watch(controls, () => {
-    controls.value.forEach(x => {
-      r.setControlVisible(x.label, x.checked)
-    })
-    c.requestRenderAll()
-  }, { deep: true })
-}
-</script>
-
+<Playground />
 
 ## 参考链接
 

@@ -59,7 +59,7 @@ btn.addEventListener('click', () => {
 
 <Demo>
 <canvas ref="pathCanvas" width="500" height="200"></canvas>
-<Btn @click="load">点击加载SVG</Btn>
+<el-button @click="load">点击加载SVG</el-button>
 </Demo>
 
 <script setup lang="ts">

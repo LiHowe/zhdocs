@@ -51,7 +51,7 @@ export const fabricSidebar = [
       },
       {
         text: '画笔',
-        link: t('freeDraw')
+        link: t('brush')
       },
       {
         text: '交互',

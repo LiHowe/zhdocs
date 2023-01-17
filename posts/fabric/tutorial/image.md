@@ -99,9 +99,9 @@ fabric.Image.fromURL(imageEl.src, imgx => {
 
 <Demo>
 <canvas ref="imageCanvas" width="500" height="200"></canvas>
-<Btn @click="loadImg(1)" :loading="loading">fromURL加载</Btn>
-<Btn @click="loadImg(2)" :loading="loading">fromElement加载</Btn>
-<Btn @click="loadImg(3)" :loading="loading">img标签加载</Btn>
+<el-button @click="loadImg(1)" :loading="loading">fromURL加载</el-button>
+<el-button @click="loadImg(2)" :loading="loading">fromElement加载</el-button>
+<el-button @click="loadImg(3)" :loading="loading">img标签加载</el-button>
 </Demo>
 
 <script setup lang="ts">

@@ -63,20 +63,20 @@ addBtn({
   }
 })
 
-addBtn({
-  label: '循环动画',
-  onClick: () => {
-    function ani() {
-      fabric.utils.animate({
-        endValue: '+=10',
-        onComplate: ani,
-        onChange() {
-          canvas.requestRenderAll()
-        }
-      })
-    }
-  }
-})
+// addBtn({
+//   label: '循环动画',
+//   onClick: () => {
+//     function ani() {
+//       fabric.utils.animate({
+//         endValue: '+=10',
+//         onComplate: ani,
+//         onChange() {
+//           canvas.requestRenderAll()
+//         }
+//       })
+//     }
+//   }
+// })
 ```
 
 </Runnable>
