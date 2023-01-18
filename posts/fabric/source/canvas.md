@@ -1,22 +1,24 @@
 ---
 title: 初始化
+description: fabric 初始化都做了些什么?
 ---
 
 # {{ $frontmatter.title }}
 
 ## 总结
 
-+ `new fabric.Canvas()` 实际上创建了3个canvas, 分别为
++ `new fabric.Canvas()` 实际上创建了3个 `canvas` 与一个 `div`, 分别为
 
   + 顶部画布(`upper-canvas`): 用于处理交互
   + 底层画布(`lower-canvas`): 用于显示元素, 为静态canvas
-  + 缓存画布(`cacheCanvas`): 用于缓存画布元素
+  + 缓存画布(`cacheCanvas`): 用于缓存画布元素, 缓存画布不插入到文档中
+  + 容器(`div.canvas-container`)
 
 + `new fabric.StaticCanvas` 只创建了一个无交互的canvas, 且不支持画笔.
 
 + 画布的默认画笔为 `PencelBrush`.
 
-+ 同事件, canvas 的事件监听要先于对象触发, 比如画布与对象同时监听了对象添加事件,
++ 相同事件条件下, canvas 的事件监听要先于对象触发, 比如画布与对象同时监听了对象添加事件,
 `object:add` 和 `added`, 那么 `object:add` 会先触发.
 
 ## 实例化 Canvas
@@ -34,9 +36,9 @@ title: 初始化
 
 可以看到, Fabric 使用传入的 canvas 生成了一个 `div` 容器, 容器内包含 `upper-canvas`, `lower-canvas`两个canvas.
 
-那么接下来我们看一下构造方法到底做了些什么, 为什么需要生成这样的DOM结构?
+那么接下来我们看一下**构造方法到底做了些什么**, 为什么需要生成这样的DOM结构?
 
-首先 `new fabric.Canvas(xx)` 为 fabric 实例的初始化方法, 所以我们通过在源码中全局搜索(`fabric.Canvas =`)找到 `Canvas` 类的定义文件 `canvas.class.ts`, 再从文件中找到对应的定义代码:
+首先, 我们来看一下 `Canvas` 的定义
 
 ```ts {1}
 fabric.Canvas = fabric.util.createClass(
@@ -45,11 +47,11 @@ fabric.Canvas = fabric.util.createClass(
 )
 ```
 
-从源码中我们可以看到, fabric并未使用传统的 `export class xxx` 的形式来定义类, 而是使用了其工具类 `fabric.util.createClass()` 来创建类.
-
 ::: tip 说明
 
-这是因为 Fabric 这个库创建时间很早很早, 其在npm发布的时间最早可以追溯到惊人的 11 年前...
+Fabric并未使用传统的 `export class xxx` 的形式来定义类, 而是使用了其工具类 `fabric.util.createClass()` 来创建类.
+
+这是因为 Fabric 这个库创建时间很早很早, 其在npm发布的时间最早可以追溯到惊人的 **11** 年前...
 
 所以一些语法及写法并未及时调整及变更(又不是不能用...)
 
@@ -60,7 +62,7 @@ fabric.Canvas = fabric.util.createClass(
 `createClass()` 方法第一个参数为类继承的父类, 第二个参数为类的属性.
 其中, 构造函数使用 **`initialize`** 方法来定义, 所以我们来从该方法入手.
 
-## 构造函数 | initialize
+## 构造函数
 
 ```ts
 {
@@ -192,8 +194,6 @@ fabric.Canvas = fabric.util.createClass(
 
 ### 创建缓存画布
 
-TODO: 缓存画布的作用
-
 创建一个与初始化canvas相同大小的canvas, 作为缓存canvas, 并赋值给 `cacheCanvasEl`, 同时将缓存canvas的上下文赋值给 `contextCache`.
 
 ```ts
@@ -204,6 +204,8 @@ _createCacheCanvas: function () {
   this.contextCache = this.cacheCanvasEl.getContext('2d');
 }
 ```
+
+具体缓存画布有什么作用, 我们在后面的章节进行分析.
 
 ## 为画布添加图形对象
 

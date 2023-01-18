@@ -29,7 +29,6 @@ onMounted(() => {
   const w = wrapper.value?.clientWidth
   const h = wrapper.value?.clientHeight
 
-
   const fbmain = new fabric.Canvas(main.value, {
     width: w,
     height: h,
@@ -140,7 +139,6 @@ onMounted(() => {
     rect.left = fbmap.backgroundImage.left - mainVPT[4] * totalRatio / fbmain.getZoom()
 
     fbmap.requestRenderAll()
-
   }
 
 })
