@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import markdownItMermaidx from './plugin/markdown-it-mermaidx'
-import { fabricSidebar } from './sidebar/fabric'
+import { fabricSidebar } from '../fabric/_config/sidebar'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
@@ -10,12 +10,13 @@ export default defineConfig({
   base: '/',
   outDir: '../dist',
   lastUpdated: true,
+  cleanUrls: 'with-subfolders',
   head: [
     ['link', { rel: 'shortcut icon', type:"image/png", href:"/favicon.png"}],
     ['link', { rel: 'stylesheet', href:"https://at.alicdn.com/t/c/font_3805125_g7vhmszhwhq.css"}],
     ['meta', { name: 'baidu-site-verification', content: 'code-ba8rWWSLaq' }],
     ['meta', { name: 'google-site-verification', content: 'YqU4J_mHcs31yFT50uAtgZXtmZKROaIfx8OU99aZRlc' }],
-    ['script', { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-2JY9M01P7D' }],
+    ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-2JY9M01P7D' }],
     ['script', {}, `
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -71,6 +72,6 @@ export default defineConfig({
 
 function buildSitemap(pages: string[], outDir: string) {
   const host = 'https://docs.hzzzh.tech/'
-  const sites: string[] = pages.map(str => host + str.replace('.md', '.html'))
+  const sites: string[] = pages.map(str => host + str.replace('.md', ''))
   writeFileSync(join(outDir, 'sitemap.txt') ,sites.join('\n'))
 }
