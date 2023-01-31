@@ -1,4 +1,4 @@
-import { defineComponent, h, onBeforeMount, ref } from 'vue'
+import { defineComponent, h, onBeforeMount, ref, onMounted, onBeforeUnmount } from 'vue'
 import { nanoid } from 'nanoid'
 import Mermaid from 'mermaid'
 
@@ -25,7 +25,7 @@ export default defineComponent({
       securityLevel: 'loose',
       // theme: 'forest',
     }
-    let configObj = {}
+    let configObj = {} as any
     try {
       configObj = JSON.parse(props.config?.replace(/\'/g, '\"') || '{}')
     } catch (e) {
@@ -34,26 +34,32 @@ export default defineComponent({
       configObj = Object.assign({}, baseConfig, configObj)
     }
     const render = async () => {
-      Mermaid.mermaidAPI.initialize(configObj)
+      const isDark = document.documentElement.classList.contains('dark')
+      Mermaid.mermaidAPI.initialize({
+        ...configObj,
+        theme: isDark ? 'dark' : configObj.theme ?? 'default'
+      })
       Mermaid.mermaidAPI.render(id, props.code, svgCode => {
         content.value = svgCode
       })
     }
+    let mo: MutationObserver
 
-    // onMounted(() => {
-      // const svg = new DOMParser().parseFromString(document.querySelector(`#${id}`), "image/svg+xml")
-      // console.log(svg)
-      // const xml = new XMLSerializer().serializeToString(document.querySelector(`#${id}`))
-      // const url = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(content.value)))
-      // const img = new Image()
-      // img.src = url
-      // el.value.appendChild(img)
-    // })
+    onMounted(async () => {
+      await render()
+      mo = new MutationObserver((record, ob) => {
+        render()
+      })
+      mo.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+      })
+    })
+    onBeforeUnmount(() => mo.disconnect())
 
     onBeforeMount(render)
     return () =>
       [h('div', {
-        id,
         ref: el,
         class: ['mermaid-svg-wrapper', 'mermaid'],
         innerHTML: content.value
