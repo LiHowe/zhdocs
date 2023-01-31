@@ -2,9 +2,9 @@
   <Demo>
     <FabricContainer :mounted="mounted">
       <template #ops>
-        <Btn @click="createSector">绘制扇形</Btn>
-        <Btn @click="createCircle">绘制圆形</Btn>
-        <Btn @click="createButton">绘制按钮</Btn>
+        <el-button @click="createSector">绘制扇形</el-button>
+        <el-button @click="createCircle">绘制圆形</el-button>
+        <el-button @click="createButton">绘制按钮</el-button>
       </template>
     </FabricContainer>
   </Demo>

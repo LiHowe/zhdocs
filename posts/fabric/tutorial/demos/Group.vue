@@ -2,12 +2,12 @@
   <Demo title="Group Playground">
     <FabricContainer :mounted="mounted">
       <template #ops>
-        <Btn @click="centerItems">居中组合元素</Btn>
-        <Btn @click="addItemWithoutUpdate"> 1️⃣ 添加矩形(不更新)</Btn>
-        <Btn @click="addItemWithUpdate"> 2️⃣ 添加矩形(更新)</Btn>
-        <Btn @click="addExistItemWithoutUpdate"> 3️⃣ 添加已存在的矩形(更新)</Btn>
-        <Btn @click="addExistItemWithUpdate"> 4️⃣ 添加已存在的矩形(更新)</Btn>
-        <Btn @click="reset">清空画布</Btn>
+        <el-button @click="centerItems">居中组合元素</el-button>
+        <el-button @click="addItemWithoutUpdate"> 1️⃣ 添加矩形(不更新)</el-button>
+        <el-button @click="addItemWithUpdate"> 2️⃣ 添加矩形(更新)</el-button>
+        <el-button @click="addExistItemWithoutUpdate"> 3️⃣ 添加已存在的矩形(更新)</el-button>
+        <el-button @click="addExistItemWithUpdate"> 4️⃣ 添加已存在的矩形(更新)</el-button>
+        <el-button @click="reset">清空画布</el-button>
       </template>
     </FabricContainer>
   </Demo>

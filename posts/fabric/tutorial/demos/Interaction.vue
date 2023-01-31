@@ -10,8 +10,8 @@
           v-model="c.checked"
           @change="(v: boolean) => handleChange(c, v)"
         />
-        <Btn @click="selectAll">选中全部</Btn>
-        <Btn @click="getActiveObj">获取选中元素</Btn>
+        <el-button @click="selectAll">选中全部</el-button>
+        <el-button @click="getActiveObj">获取选中元素</el-button>
       </template>
     </FabricContainer>
   </Demo>

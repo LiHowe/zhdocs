@@ -4,10 +4,10 @@
       <template #ops>
         <!-- 预设 -->
         <div>
-          <Btn draggable="true" style="cursor: move;">我是可拖动元素</Btn>
-          <Btn @click="clearLog">清空日志</Btn>
+          <el-button draggable="true" style="cursor: move;">我是可拖动元素</el-button>
+          <el-button @click="clearLog">清空日志</el-button>
           <template v-if="target">
-            <Btn @click="changeTarget">切换目标事件元素</Btn>
+            <el-button @click="changeTarget">切换目标事件元素</el-button>
             <Cbx :modelValue="target.evented" label="evented" @change="toggleEventful"/>
           </template>
         </div>

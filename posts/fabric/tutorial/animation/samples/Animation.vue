@@ -2,7 +2,7 @@
   <Demo>
     <FabricContainer :mounted="mounted">
       <template #ops>
-        <Btn v-for="b in btns" @click="handleClick(b)">{{ b.title }}</Btn>
+        <el-button v-for="b in btns" @click="handleClick(b)">{{ b.title }}</el-button>
       </template>
     </FabricContainer>
   </Demo>
