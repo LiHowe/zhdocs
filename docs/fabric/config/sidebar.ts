@@ -4,7 +4,7 @@ const s = (path: string) => `${perfix}/source/${path}/index.md`
 // demo path
 const d = (path: string) => `${perfix}/gallary/${path}/index.md`
 
-export const fabricSidebar = [
+export default [
   {
     text: '教程',
     collapsible: true,

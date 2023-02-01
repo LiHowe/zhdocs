@@ -13,7 +13,6 @@ const heroImageSlotExists = computed(() => !!slots['home-hero-image'])
   {{ frontmatter }}
   <div v-if="frontmatter.layout" class="Layout">
 
-
   </div>
 </template>
 

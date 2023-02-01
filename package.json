@@ -1,12 +1,7 @@
 {
-  "name": "canvas",
+  "name": "zhdocs",
   "version": "0.0.1",
-  "description": "A canvas relevant knowledge repo",
-  "scripts": {
-    "dev": "vitepress dev posts --host",
-    "build": "vitepress build posts",
-    "serve": "vitepress serve posts"
-  },
+  "description": "A document repo for self learning",
   "keywords": [
     "tutorial",
     "source",
@@ -14,19 +9,20 @@
   ],
   "author": "lihowe<howe.personal@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "vitepress dev --host"
+  },
   "dependencies": {
     "@types/dat.gui": "^0.7.7",
     "dat.gui": "^0.7.9",
     "element-plus": "^2.2.28",
-    "fabric": "^5.2.4",
-    "nanoid": "^4.0.0",
     "sass": "^1.56.1",
     "vitepress": "1.0.0-alpha.31",
     "vue": "3.2.45"
   },
   "devDependencies": {
-    "@types/fabric": "^4.5.14",
     "@vue/tsconfig": "^0.1.3",
+    "@zhdocs/theme": "workspace:*",
     "mermaid": "^9.2.2"
   }
 }

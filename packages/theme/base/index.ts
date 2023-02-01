@@ -1,12 +1,9 @@
 import DefaultTheme from 'vitepress/theme'
-import Mermaid from '../components/Mermaid'
+import Mermaid from '../plugins/mermaid'
 
-import Demo from '../components/Demo.vue'
-import Image from '../components/Image.vue'
-import Icon from '../components/Icon.vue'
+import { Demo, Image, Icon } from '@zhdocs/components'
 
 import NotFound from './NotFound.vue'
-// import Layout from './Layout.vue'
 
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'

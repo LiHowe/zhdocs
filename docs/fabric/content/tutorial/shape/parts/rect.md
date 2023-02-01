@@ -28,5 +28,5 @@ new fabric.Rect({
 
 ### 源码解析
 
-源码解析请前往 [源码解析/矩形](/fabric/source/rect.md) 进行查看.
+源码解析请前往 [源码解析/矩形](/fabric/source/rect/index) 进行查看.
 

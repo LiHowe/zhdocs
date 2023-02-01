@@ -1,0 +1,19 @@
+{
+  "name": "@zhdocs/theme",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tutorial",
+    "source",
+    "doc"
+  ],
+  "author": "lihowe<howe.personal@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@zhdocs/components": "workspace:*"
+  }
+}

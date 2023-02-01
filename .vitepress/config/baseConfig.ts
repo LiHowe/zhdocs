@@ -1,41 +1,27 @@
-import { defineConfig } from 'vitepress'
-import markdownItMermaidx from './plugin/markdown-it-mermaidx'
-import { fabricSidebar } from '../fabric/_config/sidebar'
+import { defineConfig, type UserConfig } from 'vitepress'
+import markdownItMermaidx from './markdown-it-mermaidx'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-export default defineConfig({
+import { GTM, Verification, Icon } from './baseHead'
+
+const baseConfig: UserConfig = {
   title: 'zhDocs',
+  titleTemplate: ':title - zhDocs',
   lang: 'zh-CN',
   base: '/',
-  outDir: '../dist',
+  outDir: '../../../../dist/fabric',
   lastUpdated: true,
   cleanUrls: 'with-subfolders',
   head: [
+    ...GTM,
+    ...Verification,
+    ...Icon,
     ['link', { rel: 'shortcut icon', type:"image/png", href:"/favicon.png"}],
-    ['link', { rel: 'stylesheet', href:"https://at.alicdn.com/t/c/font_3805125_g7vhmszhwhq.css"}],
-    ['meta', { name: 'baidu-site-verification', content: 'code-ba8rWWSLaq' }],
-    ['meta', { name: 'google-site-verification', content: 'YqU4J_mHcs31yFT50uAtgZXtmZKROaIfx8OU99aZRlc' }],
-    ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-2JY9M01P7D' }],
-    ['script', {}, `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-2JY9M01P7D');
-  `],
-    ['script', {}, `
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-W9CGTJN');
-    `]
   ],
   themeConfig: {
     logo: '/favicon.png',
-    sidebar: {
-      '/fabric/': fabricSidebar
-    },
+    sidebar: {},
     footer: {
       message: 'Build with ❤️ in HangZhou',
       copyright: 'Copyright © 2022-present <a href="https://github.com/lihowe">Howe</a>'
@@ -68,10 +54,24 @@ export default defineConfig({
   buildEnd(siteConfig) {
     buildSitemap(siteConfig.pages, siteConfig.outDir)
   }
-})
+}
 
 function buildSitemap(pages: string[], outDir: string) {
   const host = 'https://docs.hzzzh.tech/'
   const sites: string[] = pages.map(str => host + str.replace('.md', ''))
   writeFileSync(join(outDir, 'sitemap.txt') ,sites.join('\n'))
 }
+
+function deepMerge(o: Record<string, any>, n: Record<string, any>): Record<string, any> {
+  const res: Record<string, any> = {}
+  for (let key in o) {
+    if (Object.prototype.toString.call(o[key]) === 'Object' && n[key]) {
+      res[key] = deepMerge(o[key], n[key])
+    } else {
+      res[key] = n[key]
+    }
+  }
+  return res
+}
+
+export default (config: UserConfig) => defineConfig(deepMerge(config, baseConfig))
