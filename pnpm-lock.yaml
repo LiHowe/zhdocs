@@ -30,6 +30,7 @@ importers:
       '@types/dat.gui': ^0.7.7
       '@types/fabric': ^4.5.14
       '@zhdocs/components': workspace:*
+      '@zhdocs/config': workspace:*
       '@zhdocs/theme': workspace:*
       dat.gui: ^0.7.9
       fabric: ^5.2.4
@@ -43,11 +44,18 @@ importers:
       nanoid: 4.0.0
     devDependencies:
       '@types/fabric': 4.5.15
+      '@zhdocs/config': link:../../packages/config
 
   docs/home:
-    specifiers: {}
+    specifiers:
+      '@zhdocs/config': workspace:*
+    devDependencies:
+      '@zhdocs/config': link:../../packages/config
 
   packages/components:
+    specifiers: {}
+
+  packages/config:
     specifiers: {}
 
   packages/theme:
