@@ -11,6 +11,6 @@ features:
   - icon: 📒
     title: Fabric
     details: Fabric.js 教程及源码分析
-    link: '/fabric/'
+    link: 'https://docs.hzzzh.tech/fabric/'
     linkText: 查看
 ---
