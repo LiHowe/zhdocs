@@ -1,0 +1,30 @@
+{
+  "name": "@zhdocs/fabric",
+  "version": "0.0.1",
+  "description": "A canvas relevant knowledge repo",
+  "scripts": {
+    "dev": "vitepress dev content --host",
+    "build": "vitepress build content",
+    "serve": "vitepress serve content"
+  },
+  "keywords": [
+    "tutorial",
+    "source",
+    "doc"
+  ],
+  "author": "lihowe<howe.personal@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/dat.gui": "^0.7.7",
+    "dat.gui": "^0.7.9",
+    "element-plus": "^2.2.28",
+    "fabric": "^5.2.4",
+    "nanoid": "^4.0.0",
+    "@zhdocs/components": "workspace:*",
+    "@zhdocs/theme": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/fabric": "^4.5.14",
+    "@zhdocs/config": "workspace:*"
+  }
+}

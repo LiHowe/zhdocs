@@ -2,10 +2,10 @@
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": [
     "env.d.ts",
-    "posts/**/*",
-    "posts/**/*.vue",
-    "posts/.vitepress/**/*",
-    "posts/.vitepress/**/*.vue"
+    "packages/**/*",
+    "packages/**/*.vue",
+    "docs/**/*",
+    "docs/**/*.vue"
   ],
   "compilerOptions": {
     "baseUrl": "./",
