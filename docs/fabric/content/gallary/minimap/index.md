@@ -16,6 +16,6 @@ import miniMap from './index.vue'
 
 ::: details 查看源码
 
-<<< @/fabric/gallary/minimap/minimap.vue
+<<< @/gallary/minimap/minimap.vue
 
 :::

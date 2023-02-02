@@ -47,7 +47,7 @@ canvas.discardActiveObject()
 
 ### 组合
 
-详见 [组合](/fabric/tutorial/group)
+详见 [组合](/tutorial/group/)
 
 
 ### 摆正元素

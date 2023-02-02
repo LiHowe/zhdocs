@@ -23,6 +23,7 @@
     "@zhdocs/theme": "workspace:*"
   },
   "devDependencies": {
-    "@types/fabric": "^4.5.14"
+    "@types/fabric": "^4.5.14",
+    "@zhdocs/config": "workspace:*"
   }
 }

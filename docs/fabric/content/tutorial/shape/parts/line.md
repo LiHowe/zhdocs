@@ -33,4 +33,4 @@ new fabric.Line([
 
 ### 源码解析
 
-源码解析请前往 [源码解析/线段](/fabric/source/line.md) 进行查看.
+源码解析请前往 [源码解析/线段](/source/line/) 进行查看.

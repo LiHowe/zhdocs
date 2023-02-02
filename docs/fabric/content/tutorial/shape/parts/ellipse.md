@@ -36,4 +36,4 @@ console.log(ellipse.height) // -> 100
 
 ### 源码解析
 
-源码解析请前往 [源码解析/椭圆](/fabric/source/ellipse.md) 进行查看.
+源码解析请前往 [源码解析/椭圆](/source/ellipse/) 进行查看.

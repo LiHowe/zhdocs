@@ -33,8 +33,8 @@ canvas.add(path)
 更多字符请前往[MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths)查看
 :::
 
-但是平时我们并不会手动的去逐个点去用代码编写Path图形, 所以 fabric 也提供了 [`fabric.loadSVGFromString`](../apis/canvas/parts/loadSVGFromString.md)
-与 [`fabric.loadSVGFromURL`](../apis/canvas/parts/loadSVGFromURL.md) 来供我们加载 SVG 图形.
+但是平时我们并不会手动的去逐个点去用代码编写Path图形, 所以 fabric 也提供了 [`fabric.loadSVGFromString`](/apis/canvas/parts/loadSVGFromString.md)
+与 [`fabric.loadSVGFromURL`](/apis/canvas/parts/loadSVGFromURL.md) 来供我们加载 SVG 图形.
 
 比如我们从 iconFont 随便找一个 SVG 图标下载下来放到项目文件夹内, 然后通过 `fabric.loadSVGFromURL` 的方式去加载这个SVG文件.
 

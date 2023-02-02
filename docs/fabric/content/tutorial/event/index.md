@@ -196,8 +196,7 @@ button.addEventListener('click', () => {
 })
 ```
 
-
-想要详细了解源码写法可以前往[源码分析/Observable](../mixins/observable.md)进行查看.
+想要详细了解源码写法可以前往[源码分析/Observable](/mixins/observable.md)进行查看.
 
 :::details Demo: 分别为矩形和画布绑定事件
 

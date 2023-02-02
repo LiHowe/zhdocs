@@ -28,5 +28,5 @@ fabric 颜色的数据源为 RGBa 数值数组, 比如 `[0,0,0,1]`
 
 ## 相关链接
 
-+ [Fabric Docs | Color](http://fabricjs.com/docs/fabric.Color.html)
-+ [源码分析 | 颜色](/fabric/source/color)
++ [Fabric Docs - Color](http://fabricjs.com/docs/fabric.Color.html)
++ [源码分析 - 颜色](/source/color/)

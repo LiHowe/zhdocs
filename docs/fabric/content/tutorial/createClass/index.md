@@ -25,7 +25,7 @@ fabric 还提供了让我们创建自己的类与子类的能力, 通过 `util.c
 2. 定义(重写)我们的图形类型 `type` 为 `sector`(扇形)
 3. 定义绘制方法 `_render`, 调用 `_renderPaintInOrder` 绘制
 
-<<< @/fabric/tutorial/demos/Sector.ts
+<<< @/tutorial/createClass/demos/Sector.ts
 
 :::tip 提示
 我们可以使用 `callSuper` 来调用父类方法

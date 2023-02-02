@@ -30,5 +30,5 @@ import Play from './samples/Play.vue'
 
 ## 相关链接
 
-+ [源码解析 | 渐变色](/fabric/source/gradient)
++ [源码解析 | 渐变色](/source/gradient/)
 + [Fabric | Class:Gradient](http://fabricjs.com/docs/fabric.Gradient.html)

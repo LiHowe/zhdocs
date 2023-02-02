@@ -40,7 +40,7 @@ export class Ellipse extends FabricObject {
 
 :::info 方法介绍
 
-`arc()`: 在绘制圆形的文章中有介绍,[源码解析/Circle](./circle.md)
+`arc()`: 在绘制圆形的文章中有介绍,[源码解析/Circle](/source/circle/)
 
 `transform(a, b, c, d, e, f)`
 对图形内容进行变换, 可以同时改变图形的 `旋转`, `缩放`, `平移`, `倾斜`

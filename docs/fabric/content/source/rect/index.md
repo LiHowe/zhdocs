@@ -149,7 +149,7 @@ export class Rect {
 }
 ```
 
-> `_renderPaintInOrder` 方法将会在后面 [源码分析/渲染方法](./renderer.md) 中进行说明
+> `_renderPaintInOrder` 方法将会在后面 [源码分析/渲染方法](/source/renderer/) 中进行说明
 
 
 ## 转为SVG - `_toSVG`

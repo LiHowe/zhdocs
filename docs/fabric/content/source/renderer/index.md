@@ -8,5 +8,5 @@ title: 渲染
 
 我们从 `Rect` 入手来看一下对象的绘制过程.
 
-> Rect 的具体绘制过程在 [源码分析 - Rect](/fabric/source/rect/index) 中
+> Rect 的具体绘制过程在 [源码分析 - Rect](/source/rect/) 中
 
