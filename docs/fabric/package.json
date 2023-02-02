@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "A canvas relevant knowledge repo",
   "scripts": {
-    "dev": "vitepress dev posts --host",
-    "build": "vitepress build posts",
-    "serve": "vitepress serve posts"
+    "dev": "vitepress dev content --host",
+    "build": "vitepress build content",
+    "serve": "vitepress serve content"
   },
   "keywords": [
     "tutorial",

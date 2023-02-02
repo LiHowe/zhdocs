@@ -5,8 +5,7 @@
     "packages/**/*",
     "packages/**/*.vue",
     "docs/**/*",
-    "docs/**/*.vue",
-    "docs/.vitepress/**/*"
+    "docs/**/*.vue"
   ],
   "compilerOptions": {
     "baseUrl": "./",

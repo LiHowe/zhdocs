@@ -21,7 +21,7 @@ const baseConfig: UserConfig = {
   ],
   themeConfig: {
     logo: '/favicon.png',
-    sidebar: {},
+    sidebar: [],
     footer: {
       message: 'Build with ❤️ in HangZhou',
       copyright: 'Copyright © 2022-present <a href="https://github.com/lihowe">Howe</a>'
@@ -65,13 +65,13 @@ function buildSitemap(pages: string[], outDir: string) {
 function deepMerge(o: Record<string, any>, n: Record<string, any>): Record<string, any> {
   const res: Record<string, any> = {}
   for (let key in o) {
-    if (Object.prototype.toString.call(o[key]) === 'Object' && n[key]) {
+    if (Object.prototype.toString.call(o[key]).slice(8, -1) === 'Object' && n[key] !== undefined) {
       res[key] = deepMerge(o[key], n[key])
     } else {
-      res[key] = n[key]
+      res[key] = n[key] ?? o[key]
     }
   }
   return res
 }
 
-export default (config: UserConfig) => defineConfig(deepMerge(config, baseConfig))
+export default (config: UserConfig) => defineConfig(deepMerge(baseConfig, config))
