@@ -1,0 +1,12 @@
+{
+  "name": "@zhdocs/config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rm -rf ./lib & tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
