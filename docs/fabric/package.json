@@ -17,6 +17,7 @@
   "dependencies": {
     "@types/dat.gui": "^0.7.7",
     "dat.gui": "^0.7.9",
+    "element-plus": "^2.2.28",
     "fabric": "^5.2.4",
     "nanoid": "^4.0.0",
     "@zhdocs/components": "workspace:*",

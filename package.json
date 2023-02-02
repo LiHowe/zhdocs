@@ -10,12 +10,13 @@
   "author": "lihowe<howe.personal@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "vitepress dev --host"
+    "dev:home": "pnpm -F home dev",
+    "build:home": "pnpm -F home build",
+    "dev:fabric": "pnpm -F fabric dev",
+    "build:fabric": "pnpm -F fabric build",
+    "build": "pnpm build:home & pnpm build:fabric"
   },
   "dependencies": {
-    "@types/dat.gui": "^0.7.7",
-    "dat.gui": "^0.7.9",
-    "element-plus": "^2.2.28",
     "sass": "^1.56.1",
     "vitepress": "1.0.0-alpha.31",
     "vue": "3.2.45"
