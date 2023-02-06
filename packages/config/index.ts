@@ -3,7 +3,7 @@ import markdownItMermaidx from './markdown-it-mermaidx'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-import { GTM, Verification, Icon } from './head'
+import { GTM, Verification, Icon, Algolia } from './head'
 
 const baseConfig: UserConfig = {
   title: 'zhDocs',
@@ -17,6 +17,7 @@ const baseConfig: UserConfig = {
     ...GTM,
     ...Verification,
     ...Icon,
+    ...Algolia,
     ['link', { rel: 'shortcut icon', type:"image/png", href:"/favicon.png"}],
   ],
   themeConfig: {
