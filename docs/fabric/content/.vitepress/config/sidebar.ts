@@ -187,6 +187,10 @@ export default [
       {
         text: "范围限制",
         link: d("limits")
+      },
+      {
+        text: '流程图',
+        link: d("flowchart")
       }
     ]
   },
