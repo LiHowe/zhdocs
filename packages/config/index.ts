@@ -37,9 +37,9 @@ const baseConfig: UserConfig = {
     },
     lastUpdatedText: '最后更新时间',
     algolia: {
-      appId: 'LQDYDCVDD1',
+      appId: '50P2UST84K',
       apiKey: 'b67b07549fbcb9a70f3c53b1c3a699ac',
-      indexName: 'docs',
+      indexName: 'zhdocs',
     }
   },
   markdown: {
