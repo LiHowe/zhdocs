@@ -40,7 +40,7 @@ const baseConfig: UserConfig = {
     algolia: {
       appId: '50P2UST84K',
       apiKey: 'b67b07549fbcb9a70f3c53b1c3a699ac',
-      indexName: 'zhdocs',
+      indexName: 'netlify_1249c6f4-71c3-4983-a0a0-718cc7cf98ed_master_all',
     }
   },
   markdown: {
