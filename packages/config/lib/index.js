@@ -17,7 +17,6 @@ const baseConfig = {
         ...head_1.GTM,
         ...head_1.Verification,
         ...head_1.Icon,
-        ...head_1.Algolia,
         ['link', { rel: 'shortcut icon', type: "image/png", href: "/favicon.png" }],
     ],
     themeConfig: {
@@ -38,9 +37,9 @@ const baseConfig = {
         },
         lastUpdatedText: '最后更新时间',
         algolia: {
-            appId: '50P2UST84K',
-            apiKey: 'b67b07549fbcb9a70f3c53b1c3a699ac',
-            indexName: 'netlify_1249c6f4-71c3-4983-a0a0-718cc7cf98ed_master_all',
+            appId: '7ML3JDC81S',
+            apiKey: '209986d117bbac1b5ba8c7b3b46359ec',
+            indexName: 'hzzzh',
         }
     },
     markdown: {
