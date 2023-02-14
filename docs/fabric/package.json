@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A canvas relevant knowledge repo",
   "scripts": {
-    "dev": "vitepress dev content --host",
+    "dev": "vitepress dev content --host --port 9001",
     "build": "vitepress build content",
     "serve": "vitepress serve content"
   },

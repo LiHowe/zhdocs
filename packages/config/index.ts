@@ -4,6 +4,7 @@ import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { GTM, Verification, Icon } from './head'
+import algolia from './algolia'
 
 const baseConfig: UserConfig = {
   title: 'zhDocs',
@@ -36,11 +37,7 @@ const baseConfig: UserConfig = {
       next: '下一节'
     },
     lastUpdatedText: '最后更新时间',
-    algolia: {
-      appId: '7ML3JDC81S',
-      apiKey: '209986d117bbac1b5ba8c7b3b46359ec',
-      indexName: 'hzzzh',
-    }
+    algolia,
   },
   markdown: {
     toc: {
