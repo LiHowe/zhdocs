@@ -7,36 +7,62 @@ export function Connectable<T extends Constructor<fabric.Object>>(Target: T) {
   return class extends Target {
     connected?: boolean
 
+    // 默认禁用拉伸翻转
+    lockScalingFlip = true
+
     constructor(...args: any[]) {
       super(...args)
-      // 隐藏原有控制点
-      const originControls = Object.keys(this.controls)
-      this.setControlsVisibility(originControls.reduce((ac, cur) => {
-        ac[cur] = false
-        return ac
-      }, {} as Record<string, boolean>))
-      this.controls = {
-        ...this.controls,
-        ...linkControls,
-      }
+      useLinkControls(this)
     }
   }
 }
 
-const commonLinkControl = (dir: LinkControlName) => ({
-  actionName: `link-${dir}`,
-  cursorStyle: 'crosshair'
-})
 
-const nControl: fabric.Control = new fabric.Control({
-  ...commonLinkControl('n'),
-  x: 0,
-  y: -0.5,
-})
+function useLinkControls(target: fabric.Object) {
 
-// 东南西北代表上下左右
-export type LinkControlName = 'n' | 'w' | 'e' | 's'
+  const linkControlList = [
+    {
+      key: 'tr',
+      x: -.5,
+      y: -.5,
+    },
+    {
+      key: 'tl',
+      x: .5,
+      y: -.5,
+    },
+    {
+      key: 'br',
+      x: .5,
+      y: .5,
+    },
+    {
+      key: 'bl',
+      x: -.5,
+      y: .5,
+    }
+  ]
 
-const linkControls: Record<LinkControlName, fabric.Control> = {
-  n: nControl
+  const linkControls = linkControlList.reduce((acc, item) => {
+    acc[item.key] = new fabric.Control({
+      ...item,
+      actionName: `link-${item.key}`,
+      cursorStyle: 'crosshair',
+      render(ctx, left, top, styleOverride, fabricObject) {
+        new fabric.Circle({
+          left, top,
+          radius: 5
+        }).render(ctx)
+      }
+    })
+    return acc
+  }, {} as Record<string, any>)
+
+
+  target.controls = {
+    ...target.controls,
+    ...linkControls,
+  }
 }
+
+
