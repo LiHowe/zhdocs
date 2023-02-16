@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { addShape } from '../operation/addShape';
-import { useRect, useLine } from '../shapes/basic'
-
+import { useRect, useLine, useCurve, useTextRect, useText } from '../shapes/basic'
 
 const shapes = [
   {
@@ -11,6 +10,18 @@ const shapes = [
   {
     label: '线段',
     shape: () => useLine(),
+  },
+  {
+    label: '曲线',
+    shape: () => useCurve()
+  },
+  {
+    label: '文本框',
+    shape: () => useTextRect(),
+  },
+  {
+    label: '文字',
+    shape: () => useText()
   }
 ]
 
