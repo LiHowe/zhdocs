@@ -32,3 +32,8 @@ export default function(ctx: CanvasRenderingContext2D) {
     ctx.fill()
   }
 }
+
+// 连线策略 - 曼哈顿路由
+function lineStrategy() {
+
+}

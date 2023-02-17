@@ -73,20 +73,20 @@ export default [
         link: t("animation")
       },
       {
-        text: "自定义样式",
-        link: t("customization")
-      },
-      {
-        text: "自定义图形",
-        link: t("createClass")
-      },
-      {
-        text: "自定义控制点",
+        text: "控制点",
         link: t("customControl")
+      },
+      {
+        text: "自定义图形(子类)",
+        link: t("createClass")
       },
       {
         text: "序列化",
         link: t("serialization")
+      },
+      {
+        text: '常见问题',
+        link: t('others')
       }
     ]
   },

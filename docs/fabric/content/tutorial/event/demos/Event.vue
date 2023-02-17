@@ -8,13 +8,13 @@
           <el-button @click="clearLog">清空日志</el-button>
           <template v-if="target">
             <el-button @click="changeTarget">切换目标事件元素</el-button>
-            <Cbx :modelValue="target.evented" label="evented" @change="toggleEventful"/>
+            <el-checkbox :modelValue="target.evented" label="evented" @change="toggleEventful"/>
           </template>
         </div>
         <!-- 按钮操作块 -->
         <div class="opt-block" v-for="block in blocks">
           <p class="opt-title">{{ block.title }}</p>
-          <Cbx
+          <el-checkbox
             v-for="btn in block.list"
             v-model="btn.checked"
             :key="btn.key"

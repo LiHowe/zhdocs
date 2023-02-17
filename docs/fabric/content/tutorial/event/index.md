@@ -176,6 +176,12 @@ d --> e(mousemove) --> f(mouseup:before) --> g(mouseup) --> h(mouseout)
 | `dragenter` | 拖入 |
 | `dragleave` | 拖离 |
 
+#### 其他事件
+
+除了上面列表列出的事件外, fabric 对象还隐式提供了 `onSelect` 与 `onDeselect` 方法供我们覆写来实现对象的 `选中` 及 `取消选中` 的监听.
+
+这两个方法如果返回 `true`, 则会中断后续操作(不会被选中/不会被取消选中)
+
 ## 自定义事件
 
 同时, fabric 也支持使用 `on/once` 方法来绑定自定义事件, 搭配 `fire` 进行使用.

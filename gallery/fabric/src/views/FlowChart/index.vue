@@ -5,10 +5,8 @@
   </Content>
 </template>
 <script setup lang="ts">
-import Operation from './components/Operation.vue';
-import Content from './components/Content.vue';
-
-import { ref } from 'vue'
+import Operation from './layout/Operation.vue';
+import Content from './layout/Content.vue';
 </script>
 <style scoped>
 </style>

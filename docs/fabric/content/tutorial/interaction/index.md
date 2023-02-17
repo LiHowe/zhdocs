@@ -14,12 +14,27 @@ title: 交互
 <!--@include: ../../source/parts/control.md -->
 
 <script setup>
-import Interaction from './demos/Interaction.vue'
-import Runnable from '../../components/Runnable.vue'
+import Interaction from './demos/Interaction.vue';
+import Runnable from '../../components/Runnable.vue';
 
 </script>
 
 ## 相关方法
+
+### 选中指定元素
+
+使用 `setActiveObject(targetObject)` 方法来选中指定的元素, 比如我们想要在添加一个矩形的同时将其选中, 则可以使用以下写法:
+
+```ts
+const rect = new fabric.Rect({
+  width: 40,
+  height: 40,
+  fill: 'blue'
+})
+
+canvas.add(rect)
+canvas.setActiveObject(rect)
+```
 
 ### 获取画布当前选中元素
 

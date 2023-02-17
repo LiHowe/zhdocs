@@ -5,6 +5,7 @@ const markdown_it_mermaidx_1 = require("./markdown-it-mermaidx");
 const node_fs_1 = require("node:fs");
 const node_path_1 = require("node:path");
 const head_1 = require("./head");
+const algolia_1 = require("./algolia");
 const baseConfig = {
     title: 'zhDocs',
     titleTemplate: ':title - zhDocs',
@@ -36,11 +37,7 @@ const baseConfig = {
             next: '下一节'
         },
         lastUpdatedText: '最后更新时间',
-        algolia: {
-            appId: '7ML3JDC81S',
-            apiKey: '209986d117bbac1b5ba8c7b3b46359ec',
-            indexName: 'hzzzh',
-        }
+        algolia: algolia_1.default,
     },
     markdown: {
         toc: {
