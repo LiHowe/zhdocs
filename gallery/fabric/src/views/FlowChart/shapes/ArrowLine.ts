@@ -8,7 +8,9 @@ class ArrowLine extends fabric.Line {
   type = 'arrow-line'
   arrowWidth = 5
 
-  constructor(points: number[], options: Record<keyof fabric.Line, any>) {
+  stroke = '#e9e9e9'
+
+  constructor(points: number[], options?: Record<keyof fabric.Line, any>) {
     console.log('初始化ArrowLine', {points})
     super(points, options)
   }

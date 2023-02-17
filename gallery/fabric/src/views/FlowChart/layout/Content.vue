@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { onBeforeMount, onMounted, ref } from 'vue'
 import { canvas, useFabric } from '../hooks/fabric'
+import { useLinkListener } from '@/views/FlowChart/utils/connectable'
 
 const main = ref<HTMLCanvasElement>()
 
 onMounted(() => {
   canvas.value = main.value
-  useFabric()
+  const c = useFabric()
+  useLinkListener(c)
 })
 </script>
 <template>

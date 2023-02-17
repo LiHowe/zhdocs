@@ -23,3 +23,4 @@ export function useFabric(): fabric.Canvas {
   }
   return fb
 }
+
