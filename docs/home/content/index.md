@@ -9,7 +9,7 @@ hero:
     alt: Fabric Doc
 features:
   - icon: 📒
-    title: Fabric
+    title: Fabric [Suspend]
     details: Fabric.js 教程及源码分析
     link: 'https://docs.hzzzh.tech/fabric/'
     linkText: 查看

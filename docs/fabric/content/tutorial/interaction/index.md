@@ -9,9 +9,9 @@ title: 交互
 
 ## 画布元素交互相关属性列表
 
-可以通过 `set(key, value)` 的方式fabric对象交互相关的属性:
+我们可以通过初始化(或后期更改)对象的以下属性来实现控制或限制对象的交互
 
-<!--@include: ../../source/parts/control.md -->
+<!--@include: ../../source/object/parts/control.md -->
 
 <script setup>
 import Interaction from './demos/Interaction.vue';

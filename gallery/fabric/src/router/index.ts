@@ -13,6 +13,11 @@ const router = createRouter({
       path: '/flowchart',
       name: 'FlowChart',
       component: () => import('../views/FlowChart/index.vue')
+    },
+    {
+      path: '/mindflow',
+      name: 'MindFlow',
+      component: () => import('../views/MindFlow/index.vue')
     }
   ]
 })

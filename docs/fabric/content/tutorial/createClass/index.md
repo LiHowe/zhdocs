@@ -6,6 +6,11 @@ title: 创建自定义图形类 - CreateClass
 
 fabric 还提供了让我们创建自己的类与子类的能力, 通过 `util.createClass` 方法, 我们可以创建新的图形类以方便我们开发使用.
 
+## 总结
+
+1. 我们可以使用 `fabric.util.createClass(parent, properties?)` 来创建子类, 也可以使用 `class A extends fabric.Object` 来创建对应图形子类
+2. 如果添加了自定义属性, 则需要注意实现 `fromObject` 方法及 `toObject` 方法, 否则需要在调用 `toObject` 的时候声明需要保留的自定义属性
+
 ## 语法
 
 `fabric.util.createClass(parent, properties?)`

@@ -6,22 +6,67 @@ import { nanoid } from 'nanoid'
 
 type Constructor<T = {}> = new (...args: any[]) => T
 
-// 可连接的对象
-export function Connectable<T extends Constructor<fabric.Object>>(Target: T) {
-  return class extends Target {
-    connected?: boolean
 
+// 可连接的对象
+export function buildConnectable<T extends Constructor<fabric.Object>>(Target: T) {
+  return class Connectable extends Target {
     id!: string
 
     readonly isConnectable = true
+
+    lines: ArrowLine[] = []
 
     // 默认禁用拉伸翻转
     lockScalingFlip = true
 
     constructor(...args: any[]) {
       super(...args)
+      this.init()
+    }
+
+    init() {
       useLinkControls(this)
       this.id = nanoid(6)
+
+      if (this.type && !this.type.startsWith('c-')) {
+        this.type = `c-${this.type}`
+      }
+
+      this.on('modified', e => {
+        console.log('对象改变', { e, lines: this.lines })
+        this.updateLine()
+      })
+    }
+
+    // 在图形位置变化后更新线段位置
+    updateLine() {
+      this.lines.forEach((line: ArrowLine) => {
+        line.updatePosition()
+      })
+    }
+
+    static fromObject(object: fabric.Object, callback: Function) {
+      // const copied = Object.assign({}, object)
+      // console.log({
+      //   t: this, Target, object
+      // })
+      // console.log(Target.length, fabric.Rect.length)
+      // debugger
+      // return callback(new this(copied))
+      if (callback) {
+        const oc = callback
+        callback = (obj: fabric.Object) => {
+          Connectable.convert(obj)
+          oc(obj)
+        }
+      }
+      return Target.fromObject(object, callback)
+    }
+
+    // 将普通对象转为可连接对象
+    static convert(target: fabric.Object) {
+      target.fromObject = this.fromObject
+      target.updateLine = this.updateLine
     }
 
   }
@@ -80,7 +125,6 @@ function useLinkControls(target: fabric.Object) {
 // 添加 Connectable 类监听, 用于连线互连
 export function useLinkListener(canvas: fabric.Canvas) {
   let isDrawingLine = false
-  let currentTarget: fabric.Object | undefined
 
   let startPoint: number[]
 
@@ -88,58 +132,82 @@ export function useLinkListener(canvas: fabric.Canvas) {
 
   canvas.on('mouse:down', ({ transform, pointer, target }) => {
     if (transform?.action.startsWith('link-')) {
+      console.log('鼠标点击, transform is', transform)
       // 如果点击的是连接控制点, 开始绘制线段
-      currentTarget = target
       isDrawingLine = true
-      startPoint = [pointer.x, pointer.y]
-      console.log('[Canvas] - 鼠标按下', { pointer, target, currentTarget, isDrawingLine })
+      const { ex: x, ey: y } = transform
+      startPoint = [x, y]
       line = new ArrowLine([...startPoint, ...startPoint])
+      line.start = {
+        corner: transform.corner,
+        target,
+      }
+      canvas.add(line)
+      line.setCoords()
     }
   })
 
+  // 连接线候选目标
   let candidate: fabric.Object | undefined
+
+  // 临时点
+  let tempPoint
 
   canvas.on('mouse:move', ({ target, e , pointer }) => {
     if (!isDrawingLine || !target) return
-    if (candidate) {
-      candidate.set('stroke', '')
-      canvas.renderAll()
-    }
-    // 找到当前鼠标位置的图形对象
     candidate = canvas.findTarget(e, true)
-    if (!candidate) return
-    // 如果当前位置有对应对象, 判断该对象是否为起始对象, 如果为起始对象, 则不进行处理
-    if (candidate === target || candidate.id === target.id) candidate = undefined
-    if (!candidate) return
-
-    console.log('鼠标移动, 查找元素:', candidate, '距离为:', distance(startPoint[0], startPoint[1], pointer.x, pointer.y))
-    const { x, y } = pointer
+    let { x, y } = pointer
+    if (candidate) {
+      const control = findNearestLinkPoint(pointer!, candidate)
+      const nearestLinkPoint = candidate.oCoords[control.key]
+      x = nearestLinkPoint.x
+      y = nearestLinkPoint.y
+      if (tempPoint) {
+        canvas.remove(tempPoint)
+      }
+      // TODO: 可以考虑将可连接点全部绘制
+      tempPoint = new fabric.Circle({
+        radius: 5,
+        left: x - 5,
+        top: y - 5,
+        fill: 'red',
+        evented: false,
+        selectable: false,
+      })
+      canvas.add(tempPoint)
+      line.end = {
+        target: candidate,
+        corner: control.key
+      }
+    }
     line.set({
       x2: x,
       y2: y,
     })
-    candidate.set('stroke', 'red')
-    canvas.renderAll()
+    line?.setCoords()
+    canvas.requestRenderAll()
   })
 
   canvas.on('mouse:up', ({ target, transform, pointer }) => {
-    if (!target || !currentTarget || !isDrawingLine) {
-      isDrawingLine = false
+    if (!isDrawingLine) return
+    if (tempPoint) canvas.remove(tempPoint)
+
+    if ((line && calcLineDistance(line) < 10) || !candidate) {
+      canvas.remove(line)
       return
     }
 
-    // 相同对象不绘图
-    console.log('[Canvas] - 鼠标抬起', { pointer, target, currentTarget, isSame :target === currentTarget })
+    if (line) {
+      line._setWidthHeight()
+      target.lines.push(line)
+      candidate.lines.push(line)
+      line = undefined
+    }
+    console.log('添加连线:', line, candidate.lines)
 
-    if (!candidate) return
-    // const line = new ArrowLine([...startPoint, pointer.x, pointer.y])
-    // canvas.add(line)
-    candidate.set('stroke', '')
     candidate = undefined
-    currentTarget = undefined
     isDrawingLine = false
     canvas.requestRenderAll()
-    console.log('添加连线:', line)
   })
 
 }
@@ -149,3 +217,38 @@ function distance(x1: number, y1: number, x2: number, y2: number) {
   return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 }
 
+function calcLineDistance(line: fabric.Line) {
+  if (!line) return 0
+  const {
+    x1 = 0,
+    y1 = 0,
+    x2 = 0,
+    y2 = 0,
+  } = line
+  return distance(x1, y1, x2, y2)
+}
+
+// 找到距离最近的连接点
+function findNearestLinkPoint(point: fabric.Point, target: fabric.Object) {
+  const { x, y } = point
+  const distanceArr = Object.values(target.controls)
+    .filter((x: fabric.Control) => x.actionName.startsWith('link-'))
+    .sort((a: fabric.Control, b: fabric.Control) => {
+      const { x: x1, y: y1 } = target.oCoords[a.key]
+      const { x: x2, y: y2 } = target.oCoords[b.key]
+      return distance(x, y, x1, y1) - distance(x, y, x2, y2)
+    })
+
+  return distanceArr[0]
+}
+
+export type OriginalControls =
+  'tl' |
+  'mt' |
+  'tr' |
+  'ml' |
+  'mr' |
+  'bl' |
+  'mb' |
+  'br' |
+  'mtr'

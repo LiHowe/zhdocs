@@ -7,6 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/flowchart">FlowChart</RouterLink>
+      <RouterLink to="/mindflow">MindFlow</RouterLink>
     </nav>
   </header>
   <main class="content">

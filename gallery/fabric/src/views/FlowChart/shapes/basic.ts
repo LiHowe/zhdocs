@@ -1,9 +1,11 @@
 // 放置一些预设的图形
 import { fabric } from "fabric"
 import TextRect from '@/views/FlowChart/shapes/TextRect'
+import { buildConnectable } from "../utils/connectable"
 
 export function useRect(opts?: fabric.IRectOptions) {
-  const rect = new fabric.Rect({
+  const R = buildConnectable(fabric.Rect)
+  const rect = new R({
     width: 100,
     height: 40,
     stroke: '#e9e9e9',
@@ -49,7 +51,7 @@ export function useTextRect() {
 
 
 export function useText() {
-  const text = new fabric.IText('测试文字')
+  const it = buildConnectable(fabric.IText)
 
-  return text
+  return new it('测试文字')
 }

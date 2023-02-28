@@ -9,12 +9,12 @@
 ### 教程
 
 + [ ] Canvas 基础
-+ [x] fabric [WIP]
++ [x] fabric
 + [ ] zRender
 
 ### 源码分析
 
-+ [x] fabric [WIP]
++ [x] fabric [suspend]
 + [ ] zRender
 
 
