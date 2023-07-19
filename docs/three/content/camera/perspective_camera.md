@@ -90,4 +90,8 @@ import FovDemo from './FovDemo.vue'
   camera.lookat(mesh.position)
   ```
 
-#### 
+#### setFocalLength(length)
+
+设置摄像机焦段, 默认为 35mm
+
+与 *直接调整`fov`* 
