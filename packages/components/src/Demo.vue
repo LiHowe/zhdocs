@@ -61,6 +61,8 @@ function reload() {
   .content {
     width: 100%;
     overflow: hidden auto;
+    border: 1px solid var(--vp-c-bg-soft);
+    border-top-color: transparent;
   }
 }
 

@@ -13,4 +13,9 @@ features:
     details: Fabric.js 教程及源码分析
     link: 'https://docs.hzzzh.tech/fabric/'
     linkText: 查看
+  - icon: 📒
+    title: Three.js
+    details: Three.js 教程
+    link: 'https://docs.hzzzh.tech/three/'
+    linkText: 查看
 ---

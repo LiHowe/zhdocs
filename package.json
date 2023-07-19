@@ -14,15 +14,17 @@
     "build:home": "pnpm -F home build",
     "dev:fabric": "pnpm -F fabric dev",
     "build:fabric": "pnpm -F fabric build",
+    "dev:three": "pnpm -F three dev",
+    "build:three": "pnpm -F three build",
     "build": "pnpm build:home & pnpm build:fabric"
   },
   "dependencies": {
-    "sass": "^1.58.0",
-    "vitepress": "1.0.0-alpha.31",
-    "vue": "3.2.45"
+    "sass": "^1.63.6",
+    "vitepress": "1.0.0-beta.5",
+    "vue": "3.3.4"
   },
   "devDependencies": {
-    "@vue/tsconfig": "^0.1.3",
-    "mermaid": "^9.3.0"
+    "@vue/tsconfig": "^0.4.0",
+    "mermaid": "^9.4.3"
   }
 }

@@ -10,6 +10,7 @@
 
 + [ ] Canvas 基础
 + [x] fabric [WIP]
++ [ ] Three.js
 + [ ] zRender
 
 ### 源码分析

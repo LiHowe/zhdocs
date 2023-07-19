@@ -24,7 +24,7 @@ const baseConfig: UserConfig = {
     logo: '/favicon.png',
     sidebar: [],
     footer: {
-      message: 'Build with ❤️ in HangZhou',
+      message: 'Build with ❤️ in Earth',
       copyright: 'Copyright © 2022-present <a href="https://github.com/lihowe">Howe</a>'
     },
     outlineTitle: '目录',
