@@ -16,9 +16,11 @@ classDiagram
 `PerspectiveCamera( fov : Number, aspect : Number, near : Number, far : Number )`
 
 + `fov`: field of view, 垂直视场角大小(垂直视野大小), 默认 `50`
-+ `aspect`: 画面长宽比
-+ `near`: 相机的近端面距离, 默认 `0.1`, 取值范围为`[0, far]`
-+ `far`: 相机的远端面距离, 默认 `2000`
++ `aspect`: 视锥体长宽比
++ `near`: 视锥体近端面, 默认 `0.1`, 取值范围为`[0, far]`
++ `far`: 视锥体远端面, 默认 `2000`
+
+<Image title="可视区域示例" src="../assets/camera/img_2.png" />
 
 ### 参数解释
 
@@ -44,7 +46,7 @@ Field Of View, 视场角, 决定了摄像机的视野范围
 
 > 所以, 只有 near ~ far 之间的物体可以被渲染
 
-### Demo
+## Demo
 <script setup>
 import FovDemo from './FovDemo.vue'
 </script>
@@ -53,7 +55,7 @@ import FovDemo from './FovDemo.vue'
 
 
 
-### 属性调整
+## 属性
 
 除了 `Camera` 共有属性外, 透视相机还提供了以下属性来供开发者获取/设置属性
 
@@ -74,9 +76,9 @@ import FovDemo from './FovDemo.vue'
 | .view                | Object  | 视窗窗格或null                |
 | .zoom                | number  | 摄像机的缩放倍数                 |
 
-### 常用方法
+## 方法
 
-#### lookat(x, y, z)
+### `.lookat(x, y, z)`
 
 使摄像机将 `(x, y, z)` 点置于画面中心, 比如
 
@@ -90,4 +92,12 @@ import FovDemo from './FovDemo.vue'
   camera.lookat(mesh.position)
   ```
 
-#### 
+### `.setFocalLength(length)`
+
+设置摄像机焦段, 默认为 35mm
+
+与 *直接调整`fov`* 的区别在于: 设置焦段可以模拟 *推焦* 的效果, 可以是视野变化更加平滑.
+
+## 参考资料
+
+[PerspectiveCamera 文档 ↗](https://threejs.org/docs/index.html#api/zh/cameras/PerspectiveCamera)

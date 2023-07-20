@@ -1,7 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import Mermaid from '../plugins/mermaid'
 
-import { Demo, Image, Icon } from '@zhdocs/components'
+import { Demo, Image, Icon, Grid } from '@zhdocs/components'
 
 import NotFound from './NotFound.vue'
 
@@ -20,6 +20,7 @@ const theme: Theme = {
     ctx.app.component('Demo', Demo)
     ctx.app.component('h-mermaid', Mermaid)
     ctx.app.component('Image', Image)
+    ctx.app.component('Grid', Grid)
     ctx.app.component('Icon', Icon)
     ctx.app.use(ElementPlus, { size: 'small' })
   }

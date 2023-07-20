@@ -11,6 +11,7 @@ const fov = ref(50)
 const aspect = ref(1)
 const near = ref(0.1)
 const far = ref(100)
+const focal = ref(35)
 
 const c = new PerspectiveCamera(fov.value, aspect.value, near.value, far.value)
 const s = new Scene()
@@ -68,18 +69,33 @@ onBeforeUnmount(() => {
   p_demo_1.value.innerHTML = ''
 })
 
-watch(() => fov.value + aspect.value + near.value + far.value, () => {
-  c.fov = fov.value
-  c.aspect = aspect.value
-  c.near = near.value
-  c.far = far.value
+watch(
+  () => aspect.value + near.value + far.value,
+  () => {
+    c.aspect = aspect.value
+    c.near = near.value
+    c.far = far.value
+    c.updateProjectionMatrix()
+    reRender()
+})
+
+function changeFocal() {
+  fov.value = c.fov
+  c.setFocalLength(focal.value)
   c.updateProjectionMatrix()
   reRender()
-})
+}
+
+function changeFov() {
+  c.fov = fov.value
+  focal.value = c.getFocalLength()
+  c.updateProjectionMatrix()
+  reRender()
+}
 
 </script>
 <template>
-  <Demo :title="`相机测试 fov: ${fov}, aspect: ${aspect}, near: ${near}, far: ${far}`">
+  <Demo :title="`相机测试 [fov: ${fov}, aspect: ${aspect}, near: ${near}, far: ${far}]`">
     <div class="fov-demo">
       <div class="perspective-camera-container" ref="p_demo_1" style="width: 200px; height: 200px;"></div>
       <div>
@@ -94,20 +110,24 @@ watch(() => fov.value + aspect.value + near.value + far.value, () => {
           </p>
         </div>
         <div class="control-line">
-          <span class="label">调整fov</span>
-          <el-slider :min="12" :max="100" v-model="fov" />
+          <span class="label">视野(fov)</span>
+          <el-slider :min="1" :max="100" v-model="fov" @input="changeFov" />
         </div>
         <div class="control-line">
-          <span>调整aspect</span>
+          <span>长宽比(aspect)</span>
           <el-slider v-model="aspect" :min="0.1" :step="0.1" :max="1.9"></el-slider>
         </div>
         <div class="control-line">
-          <span>调整near</span>
+          <span>近截面距离(near)</span>
           <el-slider v-model="near" :min="0" :max="10" :step="0.1"></el-slider>
         </div>
         <div class="control-line">
-          <span>调整far</span>
+          <span>远截面距离(far)</span>
           <el-slider v-model="far" :min="10" :max="100" :step="1"></el-slider>
+        </div>
+        <div class="control-line">
+          <span>焦距(focal)</span>
+          <el-slider v-model="focal" :min="1" :max="300" :step="1" @input="changeFocal"></el-slider>
         </div>
       </div>
     </div>
@@ -128,7 +148,7 @@ p {
 }
 .control-line {
   display: grid;
-  grid-template-columns: 100px auto;
+  grid-template-columns: 150px auto;
   grid-gap: 10px;
   padding: 5px;
 }
