@@ -11,7 +11,7 @@ import { onMounted, ref } from 'vue'
 const scene = new Scene()
 
 const renderer = new WebGLRenderer()
-// renderer.shadowMap.enabled = true;
+renderer.shadowMap.enabled = true;
 renderer.useLegacyLights = false;
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize(500, 400)
@@ -22,7 +22,7 @@ scene.add(light)
 
 // 添加相机
 const camera = new PerspectiveCamera(45, 500 / 400, 0.25, 100)
-camera.position.set(0, 0, 10)
+camera.position.set(0, 0, 1)
 
 const container = ref()
 const loader = new GLTFLoader()
@@ -37,7 +37,7 @@ scene.add(spotLight)
 
 // 添加控制器
 const controls = new OrbitControls( camera, renderer.domElement );
-controls.target.set( 0, 1, 0 );
+controls.target.set( 0, 0, 0 );
 controls.update();
 
 function animate() {
@@ -48,7 +48,7 @@ function animate() {
 
 onMounted(async () => {
 
-  const model_res = await loader.loadAsync('./_models/macbook_pro.gltf')
+  const model_res = await loader.loadAsync('../_models/desert_eagle.glb')
   scene.add(model_res.scene)
   renderer.render(scene, camera)
   container.value.innerHTML = ''
