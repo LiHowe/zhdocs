@@ -6,6 +6,9 @@
     "composite": true,
     "types": ["node"],
     "outDir": "./lib",
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "checkJs": false,
     "moduleResolution": "node"
   },
   "include": [

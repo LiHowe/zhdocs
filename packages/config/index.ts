@@ -13,7 +13,7 @@ const baseConfig: UserConfig = {
   base: '/',
   outDir: '/dist',
   lastUpdated: true,
-  cleanUrls: 'with-subfolders',
+  cleanUrls: true,
   head: [
     ...GTM,
     ...Verification,

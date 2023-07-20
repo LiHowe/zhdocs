@@ -1,25 +1,17 @@
-import { defineConfig } from 'vitepress'
-
 import baseConfig from '@zhdocs/config'
-import { resolve } from 'node:path'
 
-// https://vitepress.dev/reference/site-config
 export default {
   ...baseConfig({
-    title: "Three Tutorial",
-    description: "Three.js Toturial",
+    title: "Three.js 笔记",
+    description: "Three.js 学习笔记",
     themeConfig: {
-      // https://vitepress.dev/reference/default-theme-config
-      nav: [
-        { text: 'Home', link: '/' },
-        { text: 'Examples', link: '/markdown-examples' }
-      ],
-
       sidebar: [
         {
-          text: '教程',
+          text: '笔记目录',
           items: [
             { text: '起步', link: '/startup' },
+            { text: '弹射起步', link: '/turbo_startup' },
+            { text: '3D物体', link: '/object3d' },
             {
               text: '相机',
               link: '/camera/camera',
@@ -31,7 +23,25 @@ export default {
                 { text: '立体相机', link: '/camera/stereo_camera' },
               ]
             },
-            { text: '加载模型', link: '/load_model' },
+            {
+              text: '场景',
+              link: '/scene/index.md'
+            },
+            {
+              text: '渲染器',
+              link: '/renderer/index.md'
+            },
+            {
+              text: '灯光',
+              link: '/light/index.md'
+            },
+            {
+              text: '模型',
+              link: '/model/index.md',
+              items: [
+                { text: '加载模型', link: '/model/load_model.md'}
+              ]
+            },
           ]
         }
       ],

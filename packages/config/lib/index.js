@@ -13,7 +13,7 @@ const baseConfig = {
     base: '/',
     outDir: '/dist',
     lastUpdated: true,
-    cleanUrls: 'with-subfolders',
+    cleanUrls: true,
     head: [
         ...head_1.GTM,
         ...head_1.Verification,
@@ -24,7 +24,7 @@ const baseConfig = {
         logo: '/favicon.png',
         sidebar: [],
         footer: {
-            message: 'Build with ❤️ in HangZhou',
+            message: 'Build with ❤️ in Earth',
             copyright: 'Copyright © 2022-present <a href="https://github.com/lihowe">Howe</a>'
         },
         outlineTitle: '目录',
@@ -55,7 +55,7 @@ const baseConfig = {
 function buildSitemap(pages, outDir) {
     const host = 'https://docs.hzzzh.tech/';
     const sites = pages.map(str => host + str.replace('.md', ''));
-    (0, node_fs_1.writeFileSync)((0, node_path_1.join)(outDir, 'sitemap.txt'), sites.join('\n'));
+    node_fs_1.writeFileSync(node_path_1.join(outDir, 'sitemap.txt'), sites.join('\n'));
 }
 function deepMerge(o, n) {
     const res = {};
@@ -69,4 +69,4 @@ function deepMerge(o, n) {
     }
     return res;
 }
-exports.default = (config) => (0, vitepress_1.defineConfig)(deepMerge(baseConfig, config));
+exports.default = (config) => vitepress_1.defineConfig(deepMerge(baseConfig, config));

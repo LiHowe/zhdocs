@@ -34,6 +34,9 @@
   --vp-custom-block-tip-bg: rgba(100, 108, 255, 0.1);
   --vp-custom-block-tip-border: rgba(100, 108, 255, 0.4);
   --vp-custom-block-tip-text: rgb(85, 93, 243);
+
+  --vp-button-brand-active-border: rgba(76, 96, 206, 1);;
+  --vp-button-brand-active-bg: rgba(76, 96, 206, 1);
 }
 
 html.dark {
@@ -44,9 +47,16 @@ html.dark {
   --el-color-primary: rgba(100, 108, 255, 1);
 }
 
+::selection {
+  color: var(--vp-custom-block-tip-text);
+  background: var(--vp-custom-block-tip-bg);
+}
 
 .vp-doc li ul {
-  list-style: circle;
+  /* list-style: circle; */
+}
+.vp-doc h3 {
+  margin: 32px 0 16px;
 }
 
 .color-block {

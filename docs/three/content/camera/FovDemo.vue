@@ -95,7 +95,7 @@ function changeFov() {
 
 </script>
 <template>
-  <Demo :title="`相机测试 fov: ${fov}, aspect: ${aspect}, near: ${near}, far: ${far}`">
+  <Demo :title="`相机测试 [fov: ${fov}, aspect: ${aspect}, near: ${near}, far: ${far}]`">
     <div class="fov-demo">
       <div class="perspective-camera-container" ref="p_demo_1" style="width: 200px; height: 200px;"></div>
       <div>
