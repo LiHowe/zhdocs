@@ -1,9 +1,12 @@
 import baseConfig from '@zhdocs/config'
+import { resolve } from 'node:path'
 
 export default {
   ...baseConfig({
     title: "Three.js 笔记",
+    base: '/three/',
     description: "Three.js 学习笔记",
+    outDir: resolve(__dirname, '../../../../dist/three'),
     themeConfig: {
       sidebar: [
         {
