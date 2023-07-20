@@ -16,7 +16,7 @@
     "build:fabric": "pnpm -F fabric build",
     "dev:three": "pnpm -F three dev",
     "build:three": "pnpm -F three build",
-    "build": "pnpm build:home & pnpm build:fabric"
+    "build": "pnpm build:home & pnpm build:fabric & pnpm build:three"
   },
   "dependencies": {
     "sass": "^1.63.6",
@@ -25,6 +25,6 @@
   },
   "devDependencies": {
     "@vue/tsconfig": "^0.4.0",
-    "mermaid": "^9.4.3"
+    "mermaid": "^10.2.4"
   }
 }

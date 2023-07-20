@@ -4,9 +4,10 @@ layout: home
 hero:
   name: "Three Tutorial"
   tagline: Three.js 教程及使用案例
+  image: assets/three-logo.png
   actions:
     - theme: brand
-      text: 开始学习
+      text: 开始阅读
       link: /startup
     
 

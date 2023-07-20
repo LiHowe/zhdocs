@@ -26,6 +26,8 @@
   --vp-c-brand: rgba(100, 108, 255, 1);
   --vp-c-brand-light: rgba(116, 123, 255, 1);
   --vp-c-brand-dark: rgba(71, 78, 200, 1);
+  --vp-button-brand-border: rgba(100, 108, 255, 1);
+  --vp-button-brand-hover-border: rgba(71, 78, 200, 1);
 
   --el-color-primary: rgba(100, 108, 255, 1);
 
